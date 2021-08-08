@@ -1,7 +1,7 @@
 # Portfolio
 
 <p align="center">
-  <a href="https://instalura-danilok.vercel.app/" target="blank"><img src="./public/homepage.png" width="720" alt="Instalura"></a>
+  <a href="https://portfolio-danilok.vercel.app/" target="blank"><img src="./public/images/homepage.png" width="720" alt="Instalura"></a>
 </p>
 
 Portfolio created on Advanced Front-End Bootcamp from Alura.

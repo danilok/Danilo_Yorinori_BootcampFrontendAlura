@@ -24,7 +24,8 @@ const Image = styled.img`
     if (isHighlighted) {
       return breakpointsMedia({
         md: css`
-          width: -webkit-fill-available;
+          /* width: -webkit-fill-available; */
+          width: 616px;
           height: 318px;
         `,
       });

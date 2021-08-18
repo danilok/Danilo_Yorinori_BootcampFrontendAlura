@@ -60,10 +60,15 @@ export const breakpoints = {
   xl: 1200,
 };
 
+export const zIndex = {
+  modal: 100,
+};
+
 export default {
   colors,
   typographyVariants,
   breakpoints,
+  zIndex,
   borderRadius: '8px',
   fontFamily: '\'Fira Sans Condensed\', sans-serif',
   transition: '200ms ease-in-out',

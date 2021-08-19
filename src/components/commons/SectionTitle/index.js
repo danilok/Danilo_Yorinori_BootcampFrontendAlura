@@ -3,7 +3,7 @@ import styled, { css } from 'styled-components';
 import PropTypes from 'prop-types';
 import propToStyle from '../../../theme/utils/propToStyle';
 import breakpointsMedia from '../../../theme/utils/breakpointsMedia';
-import { TextStyleVariantsMap } from '../../foundation/layout/Text';
+import { TextStyleVariantsMap } from '../../foundation/Text';
 
 const SectionTitleWrapper = styled.section`
   color: ${({ theme }) => theme.colors.primary.main.color};

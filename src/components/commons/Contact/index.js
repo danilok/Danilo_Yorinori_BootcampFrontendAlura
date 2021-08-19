@@ -3,7 +3,7 @@ import React from 'react';
 import styled, { css } from 'styled-components';
 import { PropTypes } from 'prop-types';
 import breakpointsMedia from '../../../theme/utils/breakpointsMedia';
-import Text from '../../foundation/layout/Text';
+import Text from '../../foundation/Text';
 
 const ContactWrapper = styled.div`
   display: flex;

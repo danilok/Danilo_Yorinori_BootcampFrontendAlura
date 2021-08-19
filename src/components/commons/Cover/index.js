@@ -3,7 +3,7 @@ import React from 'react';
 import styled, { css } from 'styled-components';
 import { PropTypes } from 'prop-types';
 import { motion } from 'framer-motion';
-import Text, { TextStyleVariantsMap } from '../../foundation/layout/Text';
+import Text, { TextStyleVariantsMap } from '../../foundation/Text';
 import breakpointsMedia from '../../../theme/utils/breakpointsMedia';
 
 const CoverWrapper = styled.div`

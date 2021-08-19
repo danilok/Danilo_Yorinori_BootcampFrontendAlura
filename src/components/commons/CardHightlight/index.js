@@ -5,7 +5,7 @@ import CardImage from '../CardImage';
 import CardTitle from '../CardTitle';
 import CardText from '../CardText';
 import breakpointsMedia from '../../../theme/utils/breakpointsMedia';
-import { TextStyleVariantsMap } from '../../foundation/layout/Text';
+import { TextStyleVariantsMap } from '../../foundation/Text';
 
 const CardHighlightSpan = styled.span`
   position: absolute;

@@ -2,8 +2,8 @@ import React from 'react';
 import styled, { css } from 'styled-components';
 import PropTypes from 'prop-types';
 import get from 'lodash/get';
-import propToStyle from '../../../../theme/utils/propToStyle';
-import breakpointsMedia from '../../../../theme/utils/breakpointsMedia';
+import propToStyle from '../../../theme/utils/propToStyle';
+import breakpointsMedia from '../../../theme/utils/breakpointsMedia';
 
 export const TextStyleVariantsMap = {
   headerLink: css`

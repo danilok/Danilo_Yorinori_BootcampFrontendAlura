@@ -1,7 +1,7 @@
 import React from 'react';
 import styled, { css } from 'styled-components';
 import { PropTypes } from 'prop-types';
-import Text from '../../foundation/layout/Text';
+import Text from '../../foundation/Text';
 import breakpointsMedia from '../../../theme/utils/breakpointsMedia';
 
 const CardTextWrapper = styled.div`

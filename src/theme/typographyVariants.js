@@ -89,6 +89,17 @@ const typographyVariants = {
     fontWeight: '400',
     lineHeight: 1, // 100%
   },
+  // [contact]
+  contact: {
+    fontSize: '36px',
+    fontWeight: '400',
+    lineHeight: 1.25, // 125%
+  },
+  contactXS: {
+    fontSize: '32px',
+    fontWeight: '400',
+    lineHeight: 1.25, // 125%
+  },
 };
 
 export default typographyVariants;

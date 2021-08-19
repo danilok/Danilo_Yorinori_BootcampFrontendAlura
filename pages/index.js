@@ -5,6 +5,7 @@ import Content from '../src/components/commons/Content';
 import Header from '../src/components/commons/Header';
 import ProjectsWrapper from '../src/components/commons/ProjectsWrapper';
 import Footer from '../src/components/commons/Footer';
+import Modal from '../src/components/commons/Modal';
 
 const headerLinks = [
   {
@@ -37,6 +38,7 @@ const footerLinks = [
 
 export default function Home() {
   const [cards, setCards] = React.useState([]);
+  const [modalOpened, setModalOpened] = React.useState(false);
 
   React.useEffect(async () => {
     try {
@@ -69,8 +71,27 @@ export default function Home() {
       />
       <Content id="content">
         <Header links={headerLinks} />
+        <Modal
+          isOpen={modalOpened}
+          onClose={() => {
+            setModalOpened(false);
+          }}
+        >
+          {(propsDoModal) => (
+            <div
+              // eslint-disable-next-line react/jsx-props-no-spreading
+              {...propsDoModal.boxAttributes}
+            >
+              <p>Modal</p>
+            </div>
+          )}
+        </Modal>
         <ProjectsWrapper
           cards={cards}
+          isOpen={modalOpened}
+          onClickContact={() => {
+            setModalOpened(!modalOpened);
+          }}
         />
         <Footer links={footerLinks} />
       </Content>

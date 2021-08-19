@@ -4,6 +4,7 @@ import { PropTypes } from 'prop-types';
 import breakpointsMedia from '../../../theme/utils/breakpointsMedia';
 import SectionTitle from '../SectionTitle';
 import Card from '../Card';
+import Contact from '../Contact';
 
 const Container = styled.div`
   background-color: ${({ theme }) => theme.colors.background.main.color};
@@ -23,17 +24,13 @@ const ProjectList = styled.div`
   margin: 0 auto;
   
   ${breakpointsMedia({
-    xs: css`
-      padding-top: 32px;
-      padding-bottom: 130px;
-    `,
     md: css`
       flex-direction: row;
     `,
   })}
 `;
 
-export default function ProjectsWrapper({ cards }) {
+export default function ProjectsWrapper({ cards, isOpen, onClickContact }) {
   return (
     <Container>
       <SectionTitle>
@@ -59,6 +56,11 @@ export default function ProjectsWrapper({ cards }) {
             )
         ))}
       </ProjectList>
+      <Contact
+        onClick={() => {
+          onClickContact(!isOpen);
+        }}
+      />
     </Container>
   );
 }
@@ -73,6 +75,8 @@ const cardShape = PropTypes.shape({
 
 ProjectsWrapper.propTypes = {
   cards: PropTypes.arrayOf(cardShape),
+  isOpen: PropTypes.bool.isRequired,
+  onClickContact: PropTypes.func.isRequired,
 };
 
 ProjectsWrapper.defaultProps = {

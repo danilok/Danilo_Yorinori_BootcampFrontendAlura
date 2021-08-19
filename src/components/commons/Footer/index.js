@@ -12,7 +12,7 @@ const FooterWrapper = styled.div`
   justify-content: center;
   width: 100%;
   background-color: ${({ theme }) => theme.colors.background.light.color};
-  z-index: 999;
+  z-index: ${({ theme }) => theme.zIndex.footer};
 `;
 
 FooterWrapper.Icon = styled.nav`

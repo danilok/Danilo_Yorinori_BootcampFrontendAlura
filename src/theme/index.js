@@ -61,7 +61,8 @@ export const breakpoints = {
 };
 
 export const zIndex = {
-  modal: 100,
+  modal: 200,
+  footer: 100,
 };
 
 export default {

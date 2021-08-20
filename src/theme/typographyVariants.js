@@ -100,6 +100,17 @@ const typographyVariants = {
     fontWeight: '400',
     lineHeight: 1.25, // 125%
   },
+  // [label]
+  label: {
+    fontSize: '28px',
+    fontWeight: '400',
+    lineHeight: 1.25, // 125%
+  },
+  labelXS: {
+    fontSize: '18px',
+    fontWeight: '400',
+    lineHeight: 1.25, // 125%
+  },
 };
 
 export default typographyVariants;

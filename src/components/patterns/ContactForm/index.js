@@ -71,8 +71,34 @@ function FormContent() {
 
   return (
     <Form
-      onSubmit={(event) => {
+      onSubmit={async (event) => {
         event.preventDefault();
+
+        const contactMessageDTO = {
+          name: contactMessageData.name,
+          email: contactMessageData.email,
+          message: contactMessageData.message,
+        };
+
+        try {
+          const respostaDoServidor = await fetch('https://contact-form-api-jamstack.herokuapp.com/message', {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(contactMessageDTO),
+          });
+          if (!respostaDoServidor.ok) {
+            throw Error('Não foi possível enviar a mensagem');
+          }
+
+          const respostaConvertida = await respostaDoServidor.json();
+          // eslint-disable-next-line no-console
+          console.log('Resposta com sucesso', respostaConvertida);
+        } catch (error) {
+          // eslint-disable-next-line no-console
+          console.log(error);
+        }
       }}
     >
       <Text

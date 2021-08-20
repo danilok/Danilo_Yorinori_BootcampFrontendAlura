@@ -18,6 +18,16 @@ const Button = styled.div`
   align-items: center;
   text-transform: uppercase;
   background-color: inherit;
+
+  &:hover,
+  &:focus {
+    opacity: .5;
+  }
+
+  &:disabled {
+    cursor: not-allowed;
+    opacity: .2;
+  }
 `;
 
 const Form = styled.form`
@@ -46,6 +56,9 @@ function FormContent() {
       [fieldName]: event.target.value,
     });
   }
+
+  const isFormValid = Object.values(contactMessageData)
+    .reduce((valid, field) => (field.length === 0 ? true : valid), false);
 
   return (
     <Form
@@ -128,6 +141,7 @@ function FormContent() {
         <Button
           as="button"
           type="submit"
+          disabled={isFormValid}
         >
           <Text
             as="label"

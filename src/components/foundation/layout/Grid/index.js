@@ -140,6 +140,7 @@ const Grid = {
     ${propToStyle('marginLeft')}
     ${propToStyle('marginRight')}
     ${propToStyle('justifyContent')}
+    ${propToStyle('alignItems')}
   `,
 };
 

@@ -25,6 +25,7 @@ const Button = styled.button`
   border: 0px;
   cursor: pointer;
   margin: 10px 0;
+  background-color: inherit;
 `;
 
 export default function Contact({ onClick, ...props }) {

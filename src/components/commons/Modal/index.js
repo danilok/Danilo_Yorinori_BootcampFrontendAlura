@@ -13,7 +13,7 @@ const ModalWrapper = styled.div`
   right: 0;
   left: 0;
   margin: auto;
-  overflow: scroll;
+  overflow: hidden;
   transition: .5s;
   z-index: ${({ theme }) => theme.zIndex.modal};
 

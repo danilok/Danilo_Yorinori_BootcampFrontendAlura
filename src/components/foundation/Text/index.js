@@ -78,6 +78,22 @@ export const TextStyleVariantsMap = {
       `,
   })}
   `,
+  label: css`
+    ${({ theme }) => css`
+      font-size: ${theme.typographyVariants.labelXS.fontSize};
+      font-weight: ${theme.typographyVariants.labelXS.fontWeight};
+      line-height: ${theme.typographyVariants.labelXS.lineHeight};
+    `}
+    ${breakpointsMedia({
+    md: css`
+        ${({ theme }) => css`
+          font-size: ${theme.typographyVariants.label.fontSize};
+          font-weight: ${theme.typographyVariants.label.fontWeight};
+          line-height: ${theme.typographyVariants.label.lineHeight};
+        `}
+      `,
+  })}
+  `,
   highlight: css`
     font-size: ${({ theme }) => theme.typographyVariants.highlight.fontSize};
     font-weight: ${({ theme }) => theme.typographyVariants.highlight.fontWeight};
@@ -134,7 +150,7 @@ export default function Text({
 }
 
 Text.propTypes = {
-  tag: PropTypes.oneOf(['h1', 'h2', 'h3', 'h4', 'h5', 'p', 'li', 'a', 'span']),
+  tag: PropTypes.oneOf(['h1', 'h2', 'h3', 'h4', 'h5', 'p', 'li', 'a', 'span', 'input', 'label', 'textarea']),
   variant: PropTypes.oneOf([
     'paragraph1',
     'paragraph2',
@@ -153,11 +169,13 @@ Text.propTypes = {
     'highlight',
     'highlightXS',
     'contact',
+    'label',
   ]),
-  children: PropTypes.node.isRequired,
+  children: PropTypes.node,
 };
 
 Text.defaultProps = {
   tag: 'span',
   variant: 'paragraph1',
+  children: null,
 };

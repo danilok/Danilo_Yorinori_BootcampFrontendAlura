@@ -6,6 +6,7 @@ import Header from '../src/components/commons/Header';
 import ProjectsWrapper from '../src/components/commons/ProjectsWrapper';
 import Footer from '../src/components/commons/Footer';
 import Modal from '../src/components/commons/Modal';
+import ContactForm from '../src/components/patterns/ContactForm';
 
 const headerLinks = [
   {
@@ -77,13 +78,8 @@ export default function Home() {
             setModalOpened(false);
           }}
         >
-          {(propsDoModal) => (
-            <div
-              // eslint-disable-next-line react/jsx-props-no-spreading
-              {...propsDoModal.boxAttributes}
-            >
-              <p>Modal</p>
-            </div>
+          {(modalProps) => (
+            <ContactForm modalProps={modalProps} />
           )}
         </Modal>
         <ProjectsWrapper

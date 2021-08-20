@@ -42,6 +42,11 @@ const Form = styled.form`
   })}
 `;
 
+function validateEmail(email) {
+  const re = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+  return re.test(String(email).toLowerCase());
+}
+
 function FormContent() {
   const [contactMessageData, setContactMessageData] = React.useState({
     name: '',
@@ -57,8 +62,12 @@ function FormContent() {
     });
   }
 
-  const isFormValid = Object.values(contactMessageData)
+  const anyEmptyFields = Object.values(contactMessageData)
     .reduce((valid, field) => (field.length === 0 ? true : valid), false);
+
+  const validEmail = validateEmail(contactMessageData.email);
+
+  const isFormInvalid = anyEmptyFields || !validEmail;
 
   return (
     <Form
@@ -141,7 +150,7 @@ function FormContent() {
         <Button
           as="button"
           type="submit"
-          disabled={isFormValid}
+          disabled={isFormInvalid}
         >
           <Text
             as="label"

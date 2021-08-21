@@ -26,6 +26,11 @@ const Button = styled.button`
   cursor: pointer;
   margin: 10px 0;
   background-color: inherit;
+
+  &:hover,
+  &:focus {
+    opacity: .5;
+  }
 `;
 
 export default function Contact({ onClick, ...props }) {

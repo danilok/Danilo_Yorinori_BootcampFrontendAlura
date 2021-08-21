@@ -21,6 +21,11 @@ const CloseButtonWrapper = styled.div`
       left: 93%;
     `,
   })}
+
+  &:hover,
+  &:focus {
+    opacity: .5;
+  }
 `;
 
 export default function CloseButton({ onClose, resetForm }) {

@@ -39,7 +39,7 @@ const colors = {
   },
   tertiary: {
     main: {
-      color: '#070C0E',
+      color: '#033E38B0',
       contrastText: '#fff',
     },
     light: {

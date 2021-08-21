@@ -47,6 +47,16 @@ const colors = {
       contrastText: '#fff',
     },
   },
+  danger: {
+    main: {
+      color: '#dc1515',
+      contrastText: '#fff',
+    },
+    light: {
+      color: '#88989E',
+      contrastText: '#fff',
+    },
+  },
   modes: {
     dark: {},
   },

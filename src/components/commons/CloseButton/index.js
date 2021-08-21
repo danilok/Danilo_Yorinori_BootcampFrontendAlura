@@ -13,20 +13,21 @@ const CloseButtonWrapper = styled.div`
 
   ${breakpointsMedia({
     xs: css`
-      top: 5px;
+      top: -40px;
       left: 258px;
     `,
     md: css`
       top: 28px;
-      left: 512px;
+      left: 93%;
     `,
   })}
 `;
 
-export default function CloseButton({ onClose }) {
+export default function CloseButton({ onClose, resetForm }) {
   return (
     <CloseButtonWrapper
       onClick={() => {
+        resetForm();
         onClose();
       }}
     >
@@ -37,4 +38,5 @@ export default function CloseButton({ onClose }) {
 
 CloseButton.propTypes = {
   onClose: PropTypes.func.isRequired,
+  resetForm: PropTypes.func.isRequired,
 };

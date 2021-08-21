@@ -9,6 +9,10 @@ import TextField from '../../forms/TextField';
 import TextareaField from '../../forms/TextareaField';
 import CloseButton from '../../commons/CloseButton';
 import breakpointsMedia from '../../../theme/utils/breakpointsMedia';
+import errorAnimation from './animations/error.json';
+import loadingAnimation from './animations/loading.json';
+import successAnimation from './animations/success.json';
+import FormFeedback from '../FormFeedback';
 
 const Button = styled.div`
   border: 0px;
@@ -47,7 +51,16 @@ function validateEmail(email) {
   return re.test(String(email).toLowerCase());
 }
 
-function FormContent() {
+const formStates = {
+  DEFAULT: 'DEFAULT',
+  LOADING: 'LOADING',
+  DONE: 'DONE',
+  ERROR: 'ERROR',
+};
+
+function FormContent({ onClose }) {
+  const [isFormSubmitted, setIsFormSubmitted] = React.useState(false);
+  const [formState, setFormState] = React.useState(formStates.DEFAULT);
   const [contactMessageData, setContactMessageData] = React.useState({
     name: '',
     email: '',
@@ -59,6 +72,16 @@ function FormContent() {
     setContactMessageData({
       ...contactMessageData,
       [fieldName]: event.target.value,
+    });
+  }
+
+  function resetForm() {
+    setIsFormSubmitted(false);
+    setFormState(formStates.DEFAULT);
+    setContactMessageData({
+      name: '',
+      email: '',
+      message: '',
     });
   }
 
@@ -74,6 +97,8 @@ function FormContent() {
       onSubmit={async (event) => {
         event.preventDefault();
 
+        setIsFormSubmitted(true);
+
         const contactMessageDTO = {
           name: contactMessageData.name,
           email: contactMessageData.email,
@@ -81,6 +106,7 @@ function FormContent() {
         };
 
         try {
+          setFormState(formStates.LOADING);
           const respostaDoServidor = await fetch('https://contact-form-api-jamstack.herokuapp.com/message', {
             method: 'POST',
             headers: {
@@ -92,21 +118,26 @@ function FormContent() {
             throw Error('Não foi possível enviar a mensagem');
           }
 
-          const respostaConvertida = await respostaDoServidor.json();
-          // eslint-disable-next-line no-console
-          console.log('Resposta com sucesso', respostaConvertida);
+          setTimeout(() => {
+            setFormState(formStates.DONE);
+          }, 1000);
         } catch (error) {
           // eslint-disable-next-line no-console
-          console.log(error);
+          setTimeout(() => {
+            setFormState(formStates.ERROR);
+          }, 1000);
         }
       }}
     >
+      <CloseButton onClose={onClose} resetForm={resetForm} />
+
       <Text
         as="p"
         variant="contact"
         color="primary.main"
         textAlign="center"
         margin="0"
+        textTransform="uppercase"
       >
         Envie sua mensagem
       </Text>
@@ -118,7 +149,10 @@ function FormContent() {
           xs: '24px',
           md: '30px',
         }}
-        height="75%"
+        height={{
+          xs: '72%',
+          md: '75%',
+        }}
       >
         <div>
           <Text
@@ -150,6 +184,15 @@ function FormContent() {
             value={contactMessageData.email}
             onChange={handleChange}
           />
+          {!validEmail && contactMessageData.email.length >= 0 && (
+            <Text
+              as="span"
+              variant="smallestException"
+              color="danger.main"
+            >
+              Email inválido
+            </Text>
+          )}
         </div>
         <div>
           <Text
@@ -168,30 +211,78 @@ function FormContent() {
           />
         </div>
       </Box>
-      <Box
-        display="flex"
-        flexDirection="row"
-        justifyContent="center"
-      >
-        <Button
-          as="button"
-          type="submit"
-          disabled={isFormInvalid}
+      {!isFormSubmitted && (
+        <Box
+          display="flex"
+          flexDirection="row"
+          justifyContent="center"
         >
-          <Text
-            as="label"
-            variant="label"
-            color="primary.main"
-            margin="0 10px 0 0"
+          <Button
+            as="button"
+            type="submit"
+            disabled={isFormInvalid}
           >
-            Enviar
-          </Text>
-          <img alt="Entrar em contato" src="images/icons/send_button.svg" />
-        </Button>
-      </Box>
+            <Text
+              as="label"
+              variant="label"
+              color="primary.main"
+              margin="0 10px 0 0"
+            >
+              Enviar
+            </Text>
+            <img alt="Entrar em contato" src="images/icons/send_button.svg" />
+          </Button>
+        </Box>
+      )}
+
+      {isFormSubmitted && formState === formStates.LOADING && (
+        <FormFeedback
+          width={{
+            xs: '50px',
+            md: '60px',
+          }}
+          height={{
+            xs: '50px',
+            md: '60px',
+          }}
+          animation={loadingAnimation}
+        />
+      )}
+
+      {isFormSubmitted && formState === formStates.DONE && (
+        <FormFeedback
+          width={{
+            xs: '70px',
+            md: '80px',
+          }}
+          height={{
+            xs: '60px',
+            md: '80px',
+          }}
+          animation={successAnimation}
+        />
+      )}
+
+      {isFormSubmitted && formState === formStates.ERROR && (
+        <FormFeedback
+          width={{
+            xs: '70px',
+            md: '80px',
+          }}
+          height={{
+            xs: '60px',
+            md: '80px',
+          }}
+          animation={errorAnimation}
+        />
+      )}
     </Form>
   );
 }
+
+FormContent.propTypes = {
+  onClose: PropTypes.func.isRequired,
+};
 
 export default function ContactForm({ modalProps }) {
   const { boxAttributes, onClose } = modalProps;
@@ -245,9 +336,7 @@ export default function ContactForm({ modalProps }) {
           // eslint-disable-next-line react/jsx-props-no-spreading
           {...boxAttributes}
         >
-          <CloseButton onClose={onClose} />
-
-          <FormContent />
+          <FormContent onClose={onClose} />
         </Box>
       </Grid.Col>
     </Grid.Row>

@@ -16,11 +16,6 @@ const typographyVariants = {
     fontWeight: '300',
     lineHeight: '57.6px',
   },
-  coverH2XS: {
-    fontSize: '48px',
-    fontWeight: '300',
-    lineHeight: '57.6px',
-  },
   // [sectionTitle]
   sectionTitle: {
     fontSize: '60px',

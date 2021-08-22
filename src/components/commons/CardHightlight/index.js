@@ -18,16 +18,15 @@ const CardHighlightSpan = styled.span`
   border: 1px solid ${({ theme }) => theme.colors.background.dark.color};
   background-color: white;
   z-index: 1;
+  ${TextStyleVariantsMap.highlight}
 
   ${breakpointsMedia({
     xs: css`
-      ${TextStyleVariantsMap.highlightXS}
       width: 147px;
       top: 4px;
       left: 4px;
     `,
     md: css`
-      ${TextStyleVariantsMap.highlight}
       width: 228px;
       top: 10px;
       left: 10px;

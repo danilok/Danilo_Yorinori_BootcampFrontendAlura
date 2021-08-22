@@ -3,7 +3,7 @@ import React from 'react';
 import styled, { css } from 'styled-components';
 import { PropTypes } from 'prop-types';
 import breakpointsMedia from '../../../theme/utils/breakpointsMedia';
-import Text, { TextStyleVariantsMap } from '../../foundation/Text';
+import Text from '../../foundation/Text';
 import propToStyle from '../../../theme/utils/propToStyle';
 
 const HeaderWrapper = styled.div`
@@ -32,17 +32,12 @@ HeaderWrapper.Logo = styled.div`
   justify-content: center;
   align-items: center;
   text-align: center;
-  p {
-    ${breakpointsMedia({
-      xs: css`
-        ${TextStyleVariantsMap.headerLinkXS}
-      `,
-      md: css`
-        ${TextStyleVariantsMap.headerLink}
-        width: 200px;
-      `,
-    })}
-  }
+
+  ${breakpointsMedia({
+    md: css`
+      width: 200px;
+    `,
+  })}
 
   ${propToStyle('width')}
 `;
@@ -65,18 +60,10 @@ HeaderWrapper.Navbar = styled.nav`
     text-decoration: none;
     color: ${({ theme }) => theme.colors.primary.main.contrastText};
     transition: 200ms ease-in-out;
-    ${breakpointsMedia({
-      xs: css`
-        ${TextStyleVariantsMap.headerLinkXS}
-      `,
-      md: css`
-        ${TextStyleVariantsMap.headerLink}
-      `,
-    })}
     &:hover,
     &:focus {
       font-weight: 500;
-      color: #070C0E;
+      color: ${({ theme }) => theme.colors.tertiary.main.color};
     }
   }
 `;
@@ -91,7 +78,10 @@ export default function Header({ links, ...props }) {
           md: '200px',
         }}
       >
-        <Text variant="smallestException" tag="p">
+        <Text
+          variant="headerLink"
+          tag="p"
+        >
           Danilo
         </Text>
       </HeaderWrapper.Logo>
@@ -103,7 +93,11 @@ export default function Header({ links, ...props }) {
       >
         {links.map((link) => (
           <li key={link.url}>
-            <Text variant="headerLinkXS" tag="a" href={link.url}>
+            <Text
+              variant="headerLink"
+              tag="a"
+              href={link.url}
+            >
               {link.text}
             </Text>
           </li>

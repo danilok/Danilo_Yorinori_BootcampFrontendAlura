@@ -1,10 +1,9 @@
 /* eslint-disable indent */
 import React from 'react';
-import styled, { css } from 'styled-components';
+import styled from 'styled-components';
 import { PropTypes } from 'prop-types';
 import { motion } from 'framer-motion';
-import Text, { TextStyleVariantsMap } from '../../foundation/Text';
-import breakpointsMedia from '../../../theme/utils/breakpointsMedia';
+import Text from '../../foundation/Text';
 
 const CoverWrapper = styled.div`
   position: sticky;
@@ -24,21 +23,6 @@ const CoverWrapper = styled.div`
   h1, h2 {
     margin: 0;
     text-shadow: 1px 1px 2px black, 0 0 1em #787ba2, 0 0 0.2em #9393ab
-  }
-
-  h1 {
-    ${breakpointsMedia({
-      md: css`
-        ${TextStyleVariantsMap.coverH1}
-      `,
-    })}
-  }
-  h2 {
-    ${breakpointsMedia({
-      md: css`
-        ${TextStyleVariantsMap.coverH2}
-      `,
-    })}
   }
 
   .scroll-down {
@@ -92,13 +76,13 @@ export default function Cover({ user }) {
     <>
       <CoverWrapper>
         <Text
-          variant="coverH1XS"
+          variant="coverH1"
           tag="h1"
         >
           {user}
         </Text>
         <Text
-          variant="coverH2XS"
+          variant="coverH2"
           tag="h2"
           as={motion.section}
           transition={{ delay: 0, duration: 0.5 }}

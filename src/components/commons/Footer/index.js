@@ -45,7 +45,11 @@ export default function Footer({ links, ...props }) {
       <FooterWrapper.Icon>
         {links.map((link) => (
           <li key={link.key}>
-            <Text variant="smallestException" tag="a" href={link.url}>
+            <Text
+              variant="smallestException"
+              tag="a"
+              href={link.url}
+            >
               <img
                 src={link.icon}
                 width="32px"

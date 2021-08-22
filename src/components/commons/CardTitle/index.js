@@ -3,7 +3,7 @@ import { React } from 'react';
 import styled, { css } from 'styled-components';
 import { PropTypes } from 'prop-types';
 import breakpointsMedia from '../../../theme/utils/breakpointsMedia';
-import Text, { TextStyleVariantsMap } from '../../foundation/Text';
+import Text from '../../foundation/Text';
 import Link from '../Link';
 
 const CardTitleWrapper = styled.div`
@@ -37,14 +37,6 @@ const CardTitleWrapper = styled.div`
   p {
     margin: 0;
     text-decoration: none;
-    ${breakpointsMedia({
-      xs: css`
-        ${TextStyleVariantsMap.titleXS}
-      `,
-      md: css`
-        ${TextStyleVariantsMap.title}
-      `,
-    })}
   }
 `;
 
@@ -55,7 +47,7 @@ export default function CardTitle({ repo, children, ...props }) {
       <Link href={repo}>
         <Text
           as="p"
-          variant="paragraph1"
+          variant="title"
         >
           {children}
         </Text>

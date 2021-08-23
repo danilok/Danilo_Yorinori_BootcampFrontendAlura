@@ -2,6 +2,7 @@
 import React from 'react';
 import { PropTypes } from 'prop-types';
 import styled from 'styled-components';
+import { motion } from 'framer-motion';
 import Text from '../../foundation/Text';
 
 const FooterWrapper = styled.div`
@@ -30,11 +31,6 @@ FooterWrapper.Icon = styled.nav`
     text-align: center;
     display: block;
     text-decoration: none;
-    transition: 200ms ease-in-out;
-    &:hover,
-    &:focus {
-      opacity: .5;
-    }
   }
 `;
 
@@ -46,6 +42,14 @@ export default function Footer({ links, ...props }) {
         {links.map((link) => (
           <li key={link.key}>
             <Text
+              as={motion.a}
+              whileHover={{
+                scale: 1.5,
+                transition: {
+                  duration: 0.5,
+                  ease: 'easeInOut',
+                },
+              }}
               variant="smallestException"
               tag="a"
               href={link.url}

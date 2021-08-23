@@ -1,6 +1,7 @@
 import React from 'react';
 import styled, { css, createGlobalStyle } from 'styled-components';
 import { PropTypes } from 'prop-types';
+import { motion } from 'framer-motion';
 
 const ModalWrapper = styled.div`
   display: flex;
@@ -16,6 +17,7 @@ const ModalWrapper = styled.div`
   overflow: hidden;
   transition: .5s;
   z-index: ${({ theme }) => theme.zIndex.modal};
+  justify-content: flex-end;
 
   ${({ isOpen }) => {
     if (isOpen) {
@@ -49,12 +51,33 @@ export default function Modal({ isOpen, onClose, children }) {
       }}
     >
       {isOpen && <LockScroll />}
-      {children({
-        boxAttributes: {
-          'data-modal-safe-area': 'true',
-        },
-        onClose,
-      })}
+
+      <motion.div
+        variants={{
+          open: {
+            y: 0,
+            opacity: 1,
+            scale: 1,
+          },
+          closed: {
+            y: '100%',
+            opacity: 0.4,
+            scale: 0.5,
+          },
+        }}
+        animate={isOpen ? 'open' : 'closed'}
+        transition={{
+          ease: 'easeInOut',
+          duration: 0.5,
+        }}
+      >
+        {children({
+          boxAttributes: {
+            'data-modal-safe-area': 'true',
+          },
+          onClose,
+        })}
+      </motion.div>
     </ModalWrapper>
   );
 }

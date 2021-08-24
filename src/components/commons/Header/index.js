@@ -42,6 +42,22 @@ HeaderWrapper.Logo = styled.div`
   ${propToStyle('width')}
 `;
 
+HeaderWrapper.Logo.Button = styled.button`
+  background-color: ${({ theme }) => theme.colors.background.dark.color};
+  border: 0px;
+  color: ${({ theme }) => theme.colors.primary.main.contrastText};
+  cursor: pointer;
+
+  &:hover,
+  &:focus {
+    opacity: .5;
+  }
+
+  &:visited {
+    color: inherit;
+  }
+`;
+
 HeaderWrapper.Navbar = styled.nav`
   width: 200px;
   display: flex;
@@ -68,7 +84,7 @@ HeaderWrapper.Navbar = styled.nav`
   }
 `;
 
-export default function Header({ links, ...props }) {
+export default function Header({ links, animation, ...props }) {
   return (
     // eslint-disable-next-line react/jsx-props-no-spreading
     <HeaderWrapper {...props}>
@@ -82,7 +98,16 @@ export default function Header({ links, ...props }) {
           variant="headerLink"
           tag="p"
         >
-          Danilo
+          <HeaderWrapper.Logo.Button
+            type="button"
+            onClick={() => {
+              animation.start({
+                display: 'block',
+              });
+            }}
+          >
+            Danilo
+          </HeaderWrapper.Logo.Button>
         </Text>
       </HeaderWrapper.Logo>
       <HeaderWrapper.Navbar
@@ -114,4 +139,7 @@ const headerLink = PropTypes.shape({
 
 Header.propTypes = {
   links: PropTypes.arrayOf(headerLink).isRequired,
+  animation: PropTypes.shape({
+    start: PropTypes.func.isRequired,
+  }).isRequired,
 };

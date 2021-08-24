@@ -1,6 +1,7 @@
 import React from 'react';
 import styled, { css } from 'styled-components';
 import { PropTypes } from 'prop-types';
+import { motion } from 'framer-motion';
 import CardHighlight from '../CardHightlight';
 import CardDefault from '../CardDefault';
 import breakpointsMedia from '../../../theme/utils/breakpointsMedia';
@@ -46,6 +47,8 @@ export default function Card({ card, ...props }) {
   const isHighlighted = card.highlight === true;
   return (
     <CardWrapper
+      as={motion.li}
+      whileHover={{ scale: 1.05 }}
       isHighlighted={isHighlighted}
       // eslint-disable-next-line react/jsx-props-no-spreading
       {...props}

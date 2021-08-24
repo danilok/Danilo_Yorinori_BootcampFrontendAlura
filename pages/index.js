@@ -1,5 +1,7 @@
 import React from 'react';
 import Head from 'next/head';
+import { InView } from 'react-intersection-observer';
+import { motion, useAnimation } from 'framer-motion';
 import Cover from '../src/components/commons/Cover';
 import Content from '../src/components/commons/Content';
 import Header from '../src/components/commons/Header';
@@ -40,6 +42,7 @@ const footerLinks = [
 export default function Home() {
   const [cards, setCards] = React.useState([]);
   const [modalOpened, setModalOpened] = React.useState(false);
+  const animation = useAnimation();
 
   React.useEffect(async () => {
     try {
@@ -67,11 +70,30 @@ export default function Home() {
         <meta property="og:url" content="https://portfolio-danilok.vercel.app" />
         <meta property="og:image" content="https://portfolio-danilok.vercel.app/images/homepage.png" />
       </Head>
-      <Cover
-        user="Danilo Yorinori"
-      />
+      <InView
+        style={{ backgroundColor: 'black' }}
+        threshold={0.001}
+        onChange={(inView) => {
+          if (!inView) {
+            animation.start({
+              display: 'none',
+            });
+          }
+        }}
+      >
+        <motion.div
+          animate={animation}
+        >
+          <Cover
+            user="Danilo Yorinori"
+          />
+        </motion.div>
+      </InView>
       <Content id="content">
-        <Header links={headerLinks} />
+        <Header
+          links={headerLinks}
+          animation={animation}
+        />
         <Modal
           isOpen={modalOpened}
           onClose={() => {

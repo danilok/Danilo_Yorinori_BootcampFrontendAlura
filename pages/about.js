@@ -1,21 +1,13 @@
 import React from 'react';
-import styled from 'styled-components';
+import AboutScreen from '../src/components/screens/About';
+import websitePageHOC from '../src/components/wrappers/WebsitePage/hoc';
 
-const AboutWrapper = styled.div`
-  background-color: ${({ theme }) => theme.colors.background.main.color};
-  width: 100vw;
-  height: 100vh;
-  text-align: center;
-
-  p {
-    font-size: 40px;
-  }
-`;
-
-export default function About() {
+function AboutPage() {
   return (
-    <AboutWrapper>
-      <p>Em construção</p>
-    </AboutWrapper>
+    <AboutScreen />
   );
 }
+
+AboutPage.propTypes = AboutScreen.propTypes;
+
+export default websitePageHOC(AboutPage);

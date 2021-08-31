@@ -1,21 +1,11 @@
 import React from 'react';
-import styled from 'styled-components';
+import ContactScreen from '../src/components/screens/Contact';
+import websitePageHOC from '../src/components/wrappers/WebsitePage/hoc';
 
-const ContactWrapper = styled.div`
-  background-color: ${({ theme }) => theme.colors.background.main.color};
-  width: 100vw;
-  height: 100vh;
-  text-align: center;
-
-  p {
-    font-size: 40px;
-  }
-`;
-
-export default function Contact() {
+function ContactPage() {
   return (
-    <ContactWrapper>
-      <p>Em construção</p>
-    </ContactWrapper>
+    <ContactScreen />
   );
 }
+
+export default websitePageHOC(ContactPage);

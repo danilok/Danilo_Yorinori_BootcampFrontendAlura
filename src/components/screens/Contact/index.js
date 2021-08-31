@@ -1,21 +1,24 @@
 import React from 'react';
 import styled from 'styled-components';
+import Text from '../../foundation/Text';
 
 const ContactWrapper = styled.div`
   background-color: ${({ theme }) => theme.colors.background.main.color};
   width: 100vw;
   height: 100vh;
   text-align: center;
-
-  p {
-    font-size: 40px;
-  }
 `;
 
 export default function ContactScreen() {
   return (
     <ContactWrapper>
-      <p>Em construção</p>
+      <Text
+        variant="coverH2"
+        tag="h1"
+        margin="0"
+      >
+        Em construção
+      </Text>
     </ContactWrapper>
   );
 }

@@ -30,7 +30,7 @@ const ProjectList = styled.div`
   })}
 `;
 
-export default function ProjectsWrapper({ cards, isOpen, onClickContact }) {
+export default function ProjectsWrapper({ cards, onClickContact }) {
   return (
     <Container>
       <SectionTitle>
@@ -58,7 +58,7 @@ export default function ProjectsWrapper({ cards, isOpen, onClickContact }) {
       </ProjectList>
       <Contact
         onClick={() => {
-          onClickContact(!isOpen);
+          onClickContact();
         }}
       />
     </Container>
@@ -75,7 +75,6 @@ const cardShape = PropTypes.shape({
 
 ProjectsWrapper.propTypes = {
   cards: PropTypes.arrayOf(cardShape),
-  isOpen: PropTypes.bool.isRequired,
   onClickContact: PropTypes.func.isRequired,
 };
 

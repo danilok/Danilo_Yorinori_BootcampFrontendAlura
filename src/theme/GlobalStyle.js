@@ -14,6 +14,7 @@ const GlobalStyle = createGlobalStyle`
     padding: 0;
     box-sizing: border-box;
     font-family: ${({ theme }) => theme.fontFamily};
+    background-color: ${({ theme }) => theme.colors.background.main.color};
     scroll-behavior: smooth;
   }
 

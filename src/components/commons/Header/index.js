@@ -47,6 +47,7 @@ HeaderWrapper.Logo.Button = styled.button`
   border: 0px;
   color: ${({ theme }) => theme.colors.primary.main.contrastText};
   cursor: pointer;
+  text-transform: uppercase;
 
   &:hover,
   &:focus {
@@ -90,7 +91,7 @@ export default function Header({ links, animation, ...props }) {
     <HeaderWrapper {...props}>
       <HeaderWrapper.Logo
         width={{
-          xs: '60px',
+          xs: '68px',
           md: '200px',
         }}
       >
@@ -112,7 +113,7 @@ export default function Header({ links, animation, ...props }) {
       </HeaderWrapper.Logo>
       <HeaderWrapper.Navbar
         width={{
-          xs: '175px',
+          xs: '160px',
           md: '264px',
         }}
       >

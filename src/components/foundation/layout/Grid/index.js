@@ -33,6 +33,7 @@ const Container = styled.div`
   })}
 
   ${propToStyle('marginTop')}
+  ${propToStyle('maxWidth')}
 `;
 
 const Col = styled.div`
@@ -141,6 +142,7 @@ const Grid = {
     ${propToStyle('marginRight')}
     ${propToStyle('justifyContent')}
     ${propToStyle('alignItems')}
+    ${propToStyle('flexDirection')}
   `,
 };
 

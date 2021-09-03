@@ -4,7 +4,6 @@ import PropTypes from 'prop-types';
 import Text from '../../foundation/Text';
 import SectionTitle from '../../commons/SectionTitle';
 import Grid from '../../foundation/layout/Grid';
-import Link from '../../commons/Link';
 import AboutWrapper from './styles/AboutWrapper';
 
 export default function AboutScreen({ repos }) {
@@ -150,17 +149,17 @@ export default function AboutScreen({ repos }) {
                       variant="paragraph1"
                       textTransform="capitalize"
                       fontWeight="bold"
+                      color="primary.main"
                     >
                       {item.name}
                     </Text>
-                    <Link href={item.url}>
-                      <Text
-                        tag="p"
-                        variant="paragraph1"
-                      >
-                        {item.url}
-                      </Text>
-                    </Link>
+                    <Text
+                      tag="p"
+                      variant="paragraph1"
+                      href={item.url}
+                    >
+                      {item.url}
+                    </Text>
                   </div>
                 </li>
               ))}

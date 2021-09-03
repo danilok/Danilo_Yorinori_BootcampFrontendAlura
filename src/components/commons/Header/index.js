@@ -98,6 +98,7 @@ export default function Header({ links, animation, ...props }) {
         <Text
           variant="headerLink"
           tag="p"
+          href="/"
         >
           <HeaderWrapper.Logo.Button
             type="button"

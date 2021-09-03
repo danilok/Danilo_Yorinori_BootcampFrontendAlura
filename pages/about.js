@@ -10,7 +10,13 @@ function AboutPage({ repos }) {
 
 AboutPage.propTypes = AboutScreen.propTypes;
 
-export default websitePageHOC(AboutPage);
+export default websitePageHOC(AboutPage, {
+  pageWrapperProps: {
+    seoProps: {
+      headTitle: 'Sobre Mim',
+    },
+  },
+});
 
 export async function getStaticProps() {
   const res = await fetch('https://api.github.com/users/danilok/repos?per_page=10&page=1');

@@ -12,6 +12,9 @@ HomePage.propTypes = HomeScreen.propTypes;
 
 export default websitePageHOC(HomePage, {
   pageWrapperProps: {
+    seoProps: {
+      headTitle: 'Home',
+    },
     coverProps: {
       display: true,
     },

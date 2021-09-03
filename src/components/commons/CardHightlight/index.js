@@ -67,6 +67,7 @@ export default function CardHighlight({ card }) {
       <CardImage
         src={card.img}
         url={card.url}
+        alt={card.title}
         isHighlighted
       />
       <CardHighlightInfoWrapper>

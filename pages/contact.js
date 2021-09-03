@@ -8,4 +8,10 @@ function ContactPage() {
   );
 }
 
-export default websitePageHOC(ContactPage);
+export default websitePageHOC(ContactPage, {
+  pageWrapperProps: {
+    seoProps: {
+      headTitle: 'Contato',
+    },
+  },
+});

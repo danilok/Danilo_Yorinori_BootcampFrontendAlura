@@ -35,7 +35,7 @@ const Image = styled.img`
 `;
 
 export default function CardImage({
-  src, url, isHighlighted, ...props
+  src, url, alt, isHighlighted, ...props
 }) {
   return (
     <CardImageWrapper>
@@ -46,6 +46,7 @@ export default function CardImage({
       >
         <Image
           src={`/api/image-generator?url=${url}`}
+          alt={alt}
           isHighlighted={isHighlighted}
         />
       </Link>
@@ -56,6 +57,7 @@ export default function CardImage({
 CardImage.propTypes = {
   src: PropTypes.string.isRequired,
   url: PropTypes.string.isRequired,
+  alt: PropTypes.string.isRequired,
   isHighlighted: PropTypes.bool,
 };
 

@@ -43,7 +43,7 @@ export default function AboutScreen({ repos }) {
                 setShowText(!showText);
               }}
             >
-              <img alt="Sobre mim" src="images/icons/add_button.svg" />
+              <img alt="Sobre mim" src="/images/icons/add_button.svg" />
             </AboutWrapper.Button>
           </Grid.Col>
         </Grid.Row>

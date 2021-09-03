@@ -1,3 +1,4 @@
+/* eslint-disable react/jsx-props-no-spreading */
 import React from 'react';
 import PropTypes from 'prop-types';
 import { InView } from 'react-intersection-observer';
@@ -8,31 +9,35 @@ import Header from '../../commons/Header';
 import Modal from '../../commons/Modal';
 import ContactForm from '../../patterns/ContactForm';
 import Footer from '../../commons/Footer';
+import SEO from '../../commons/SEO';
 
 const headerLinks = [
   {
     text: 'Sobre Mim',
-    url: '/about',
+    url: '/about/',
   },
   {
     text: 'Contato',
-    url: '/contact',
+    url: '/contact/',
   },
 ];
 
 const footerLinks = [
   {
     key: 'ft-lk',
+    alt: 'Linkedin',
     icon: '/images/icons/linkedin.png',
     url: 'https://www.linkedin.com/in/danilo-yorinori/',
   },
   {
     key: 'ft-gh',
+    alt: 'Github',
     icon: '/images/icons/github.png',
     url: 'https://github.com/danilok',
   },
   {
     key: 'ft-md',
+    alt: 'Medium',
     icon: '/images/icons/medium.png',
     url: 'https://medium.com/@daniloksy',
   },
@@ -45,6 +50,7 @@ export const WebsitePageContext = React.createContext({
 
 export default function WebsitePageWrapper({
   children,
+  seoProps,
   coverProps,
 }) {
   const [modalOpened, setModalOpened] = React.useState(false);
@@ -59,6 +65,10 @@ export default function WebsitePageWrapper({
         animation,
       }}
     >
+      <SEO
+        {...seoProps}
+      />
+
       {coverProps.display && (
         <InView
           style={{ backgroundColor: 'black' }}

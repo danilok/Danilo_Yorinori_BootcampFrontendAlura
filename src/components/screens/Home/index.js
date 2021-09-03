@@ -1,5 +1,4 @@
 import React from 'react';
-import Head from 'next/head';
 import { WebsitePageContext } from '../../wrappers/WebsitePage';
 import ProjectsWrapper from '../../commons/ProjectsWrapper';
 
@@ -22,25 +21,13 @@ export default function HomeScreen() {
   }, []);
 
   return (
-    <>
-      <Head>
-        <title>Portfolio - Danilo Yorinori</title>
-        <meta name="title" content="Portfolio" />
-        <meta name="description" content="Portfolio - Danilo Yorinori" />
-        <meta property="og:title" content="Portfolio" key="title" />
-        <meta property="og:description" content="Portfolio - Danilo Yorinori" key="description" />
-        <meta property="og:type" content="website" />
-        <meta property="og:url" content="https://portfolio-danilok.vercel.app" />
-        <meta property="og:image" content="https://portfolio-danilok.vercel.app/images/homepage.png" />
-      </Head>
-      <ProjectsWrapper
-        cards={cards}
-        // isOpen={modalOpened}
-        onClickContact={() => {
-          // setModalOpened(!modalOpened);
-          websitePageContext.toggleModalContato();
-        }}
-      />
-    </>
+    <ProjectsWrapper
+      cards={cards}
+      // isOpen={modalOpened}
+      onClickContact={() => {
+        // setModalOpened(!modalOpened);
+        websitePageContext.toggleModalContato();
+      }}
+    />
   );
 }

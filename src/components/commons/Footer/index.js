@@ -72,6 +72,7 @@ const footerLink = PropTypes.shape({
   key: PropTypes.string.isRequired,
   icon: PropTypes.string.isRequired,
   url: PropTypes.string.isRequired,
+  alt: PropTypes.string.isRequired,
 });
 
 Footer.propTypes = {

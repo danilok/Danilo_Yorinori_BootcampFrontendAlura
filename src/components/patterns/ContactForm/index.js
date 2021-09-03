@@ -230,7 +230,7 @@ function FormContent({ onClose }) {
             >
               Enviar
             </Text>
-            <img alt="Entrar em contato" src="images/icons/send_button.svg" />
+            <img alt="Entrar em contato" src="/images/icons/send_button.svg" />
           </Button>
         </Box>
       )}

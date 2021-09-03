@@ -9,6 +9,7 @@ export default function CardDefault({ card }) {
       <CardImage
         src={card.img}
         url={card.url}
+        alt={card.title}
       />
       <CardTitle repo={card.repo}>
         {card.title}

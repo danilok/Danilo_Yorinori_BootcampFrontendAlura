@@ -9,6 +9,7 @@ const methods = {
         url: 'https://instalura-danilok.vercel.app/',
         highlight: false,
         repo: 'https://github.com/danilok/instalura',
+        slug: 'instalura',
       },
       {
         img: 'https://picsum.photos/800/800?random=2',
@@ -17,6 +18,7 @@ const methods = {
         url: 'https://alurakut-danilok.vercel.app/',
         highlight: false,
         repo: 'https://github.com/danilok/alurakut',
+        slug: 'alurakut',
       },
       {
         img: 'https://picsum.photos/800/800?random=3',
@@ -25,6 +27,7 @@ const methods = {
         url: 'https://aluraquiz.danilok.vercel.app/',
         highlight: false,
         repo: 'https://github.com/danilok/aluraquiz',
+        slug: 'aluraquiz',
       },
       {
         img: 'https://picsum.photos/800/800?random=4',
@@ -33,6 +36,7 @@ const methods = {
         url: 'https://alura-dev-danilok.vercel.app/',
         highlight: true,
         repo: 'https://github.com/danilok/alura-dev',
+        slug: 'aluradev',
       },
     ];
 

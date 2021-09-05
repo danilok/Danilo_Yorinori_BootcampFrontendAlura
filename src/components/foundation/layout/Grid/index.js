@@ -15,6 +15,8 @@ const Container = styled.div`
 
       padding-right: 28px;
       padding-left: 28px;
+      ${propToStyle('paddingRight')}
+      ${propToStyle('paddingLeft')}
     `,
     sm: css`
       max-width: 576px;

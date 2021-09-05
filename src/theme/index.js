@@ -33,7 +33,7 @@ const colors = {
   },
   secondary: {
     main: {
-      color: '#FB7B6B',
+      color: '#1B575B',
       contrastText: '#fff',
     },
   },

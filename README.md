@@ -34,6 +34,7 @@ Portfolio created on Advanced Front-End Bootcamp from Alura.
 - [Framer Motion](https://www.framer.com/motion/): A production-ready motion library for React.
 - [Lottie](https://github.com/crello/react-lottie): React/Typescript wrapper for awesome Airbnb's lottie-web lib.
 - [puppeteer](https://github.com/puppeteer/puppeteer): Puppeteer is a Node library which provides a high-level API to control Chrome or Chromium over the DevTools Protocol. 
+- [react-intersection-observer](https://www.npmjs.com/package/react-intersection-observer): React implementation of the Intersection Observer API to tell you when an element enters or leaves the viewport.
 
 <br>
 
@@ -50,9 +51,19 @@ from idea to production
 # ⚙️ Functionalities
 - List projects
 - Click on project image to visit deployed application
-- Click on project title to visit project repository
-- Links to gitbub, medium and linkedin profiles
+- Click on project title to visit project's page 
+- Links to Github, Medium and LinkedIn profiles
 - Send contact message to external api (it won't reach me!)
+- About me page with some repositories links
+- SEO tags and robots file
+
+<br>
+
+# <img src="https://simpleicons.org/icons/nextdotjs.svg" width="32px" height="32px" /> Features from Next
+- Static pages generated dynamically
+- Static content
+- Navigation as SPA
+- Trailing slash as default for project pages using `next.config.js`
 
 <br>
  

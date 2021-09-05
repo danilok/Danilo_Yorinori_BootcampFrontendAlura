@@ -27,12 +27,12 @@
     "slug": "aluraquiz"
   },
   {
-    "img": "/images/instalura.png",
+    "img": "/images/aluradev.png",
     "title": "AluraDev",
     "text": "Projeto desenvolvido para o Challenge Front-end da Alura. Mussum Ipsum, cacilds vidis litro abertis.Casamentiss faiz malandris se pirulitá. Interessantiss quisso pudia ce receita de bolis, mais bolis eu num gostis.",
     "url": "https://alura-dev-danilok.vercel.app/",
     "highlight": true,
     "repo": "https://github.com/danilok/alura-dev",
-    "slug": "aluradev"
+    "slug": "alura-dev"
   }
 ]

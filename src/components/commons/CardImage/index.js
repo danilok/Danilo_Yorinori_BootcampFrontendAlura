@@ -16,7 +16,7 @@ const Image = styled.img`
     `,
     md: css`
       width: 286px;
-      height: 390px;
+      height: 238px;
     `,
   })}
 
@@ -45,7 +45,7 @@ export default function CardImage({
         {...props}
       >
         <Image
-          src={`/api/image-generator?url=${url}`}
+          src={src}
           alt={alt}
           isHighlighted={isHighlighted}
         />

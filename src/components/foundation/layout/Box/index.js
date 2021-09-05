@@ -19,6 +19,7 @@ const Box = styled.div`
   ${propToStyle('paddingTop')}
   ${propToStyle('height')}
   ${propToStyle('width')}
+  ${propToStyle('textAlign')}
 `;
 
 export default Box;

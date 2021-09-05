@@ -73,6 +73,7 @@ export default function CardHighlight({ card }) {
       <CardHighlightInfoWrapper>
         <CardTitle
           repo={card.repo}
+          slug={card.slug}
           isHighlighted
         >
           {card.title}
@@ -92,6 +93,7 @@ CardHighlight.propTypes = {
     text: PropTypes.string,
     url: PropTypes.string,
     repo: PropTypes.string,
+    slug: PropTypes.string,
     highlight: PropTypes.bool,
   }).isRequired,
 };

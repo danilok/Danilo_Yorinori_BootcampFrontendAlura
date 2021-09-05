@@ -39,14 +39,16 @@ const CardTitleWrapper = styled.div`
   }
 `;
 
-export default function CardTitle({ repo, children, ...props }) {
+export default function CardTitle({
+  repo, slug, children, ...props
+}) {
   return (
     // eslint-disable-next-line react/jsx-props-no-spreading
     <CardTitleWrapper {...props}>
       <Text
         variant="title"
         color="primary.main"
-        href={repo}
+        href={`/projects/${slug}/`}
       >
         {children}
       </Text>
@@ -56,5 +58,6 @@ export default function CardTitle({ repo, children, ...props }) {
 
 CardTitle.propTypes = {
   repo: PropTypes.string.isRequired,
+  slug: PropTypes.string.isRequired,
   children: PropTypes.string.isRequired,
 };

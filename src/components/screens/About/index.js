@@ -156,6 +156,7 @@ export default function AboutScreen({ repos }) {
                     <Text
                       tag="p"
                       variant="paragraph1"
+                      color="secondary.main"
                       href={item.url}
                     >
                       {item.url}

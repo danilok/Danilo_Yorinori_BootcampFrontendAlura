@@ -18,7 +18,7 @@ const CardWrapper = styled.li`
     `,
     md: css`
       width: 288px;
-      height: 510px;
+      height: 350px;
     `,
   })}
   flex-basis: auto;

@@ -15,6 +15,8 @@ const Container = styled.div`
 
       padding-right: 28px;
       padding-left: 28px;
+      ${propToStyle('paddingRight')}
+      ${propToStyle('paddingLeft')}
     `,
     sm: css`
       max-width: 576px;
@@ -33,6 +35,7 @@ const Container = styled.div`
   })}
 
   ${propToStyle('marginTop')}
+  ${propToStyle('maxWidth')}
 `;
 
 const Col = styled.div`
@@ -141,6 +144,7 @@ const Grid = {
     ${propToStyle('marginRight')}
     ${propToStyle('justifyContent')}
     ${propToStyle('alignItems')}
+    ${propToStyle('flexDirection')}
   `,
 };
 

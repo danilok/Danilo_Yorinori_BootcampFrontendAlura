@@ -4,7 +4,6 @@ import styled, { css } from 'styled-components';
 import { PropTypes } from 'prop-types';
 import breakpointsMedia from '../../../theme/utils/breakpointsMedia';
 import Text from '../../foundation/Text';
-import Link from '../Link';
 
 const CardTitleWrapper = styled.div`
   display: flex;
@@ -40,23 +39,25 @@ const CardTitleWrapper = styled.div`
   }
 `;
 
-export default function CardTitle({ repo, children, ...props }) {
+export default function CardTitle({
+  repo, slug, children, ...props
+}) {
   return (
     // eslint-disable-next-line react/jsx-props-no-spreading
     <CardTitleWrapper {...props}>
-      <Link href={repo}>
-        <Text
-          as="p"
-          variant="title"
-        >
-          {children}
-        </Text>
-      </Link>
+      <Text
+        variant="title"
+        color="primary.main"
+        href={`/projects/${slug}/`}
+      >
+        {children}
+      </Text>
     </CardTitleWrapper>
   );
 }
 
 CardTitle.propTypes = {
   repo: PropTypes.string.isRequired,
+  slug: PropTypes.string.isRequired,
   children: PropTypes.string.isRequired,
 };

@@ -9,6 +9,7 @@ const SectionTitleWrapper = styled.section`
   background-color: ${({ theme }) => theme.colors.background.section.color};
 
   ${TextStyleVariantsMap.sectionTitle}
+  text-transform: uppercase;
 
   ${propToStyle('textAlign')}
   ${propToStyle('paddingTop')}

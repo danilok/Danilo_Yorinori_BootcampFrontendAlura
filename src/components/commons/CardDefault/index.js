@@ -9,8 +9,12 @@ export default function CardDefault({ card }) {
       <CardImage
         src={card.img}
         url={card.url}
+        alt={card.title}
       />
-      <CardTitle repo={card.repo}>
+      <CardTitle
+        repo={card.repo}
+        slug={card.slug}
+      >
         {card.title}
       </CardTitle>
     </>
@@ -24,6 +28,7 @@ CardDefault.propTypes = {
     text: PropTypes.string,
     url: PropTypes.string,
     repo: PropTypes.string,
+    slug: PropTypes.string,
     highlight: PropTypes.bool,
   }).isRequired,
 };

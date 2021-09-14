@@ -120,6 +120,7 @@ function FormContent({ onClose }) {
 
   return (
     <Form
+      id="contactForm"
       onSubmit={form.handleSubmit}
     >
       <CloseButton onClose={onClose} resetForm={resetForm} />
@@ -219,7 +220,7 @@ function FormContent({ onClose }) {
             disabled={form.isFormDisabled}
           >
             <Text
-              as="label"
+              as="span"
               variant="label"
               color="primary.main"
               margin="0 10px 0 0"

@@ -1,12 +1,14 @@
 import React from 'react';
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 import PropTypes from 'prop-types';
 import propToStyle from '../../../theme/utils/propToStyle';
 import { TextStyleVariantsMap } from '../../foundation/Text';
 
 const SectionTitleWrapper = styled.section`
   color: ${({ theme }) => theme.colors.primary.main.color};
-  background-color: ${({ theme }) => theme.colors.background.section.color};
+  ${({ theme }) => css`
+    background: linear-gradient(0deg, ${theme.colors.background.main.color} 0%, ${theme.colors.background.section.color} 100%);
+  `}
 
   ${TextStyleVariantsMap.sectionTitle}
   text-transform: uppercase;

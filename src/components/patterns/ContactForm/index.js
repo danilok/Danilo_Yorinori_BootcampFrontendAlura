@@ -70,7 +70,7 @@ const contactSchema = yup.object().shape({
     .required('"Mensagem" é obrigatório'),
 });
 
-function FormContent({ onClose }) {
+export function FormContent({ onClose, onSubmit }) {
   const [formState, setFormState] = React.useState(formStates.DEFAULT);
   const initialValues = {
     name: '',
@@ -121,7 +121,7 @@ function FormContent({ onClose }) {
   return (
     <Form
       id="contactForm"
-      onSubmit={form.handleSubmit}
+      onSubmit={onSubmit || form.handleSubmit}
     >
       <CloseButton onClose={onClose} resetForm={resetForm} />
 
@@ -278,7 +278,13 @@ function FormContent({ onClose }) {
 }
 
 FormContent.propTypes = {
-  onClose: PropTypes.func.isRequired,
+  onClose: PropTypes.func,
+  onSubmit: PropTypes.func,
+};
+
+FormContent.defaultProps = {
+  onClose: null,
+  onSubmit: null,
 };
 
 export default function ContactForm({ modalProps }) {

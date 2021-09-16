@@ -3,4 +3,5 @@
 . "$(dirname "$0")/common.sh"
 
 yarn lint
+yarn jest
 yarn test:integration:build

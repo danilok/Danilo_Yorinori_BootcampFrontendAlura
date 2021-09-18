@@ -35,6 +35,8 @@ Portfolio created on Advanced Front-End Bootcamp from Alura.
 - [Lottie](https://github.com/crello/react-lottie): React/Typescript wrapper for awesome Airbnb's lottie-web lib.
 - [puppeteer](https://github.com/puppeteer/puppeteer): Puppeteer is a Node library which provides a high-level API to control Chrome or Chromium over the DevTools Protocol. 
 - [react-intersection-observer](https://www.npmjs.com/package/react-intersection-observer): React implementation of the Intersection Observer API to tell you when an element enters or leaves the viewport.
+- [yup](https://github.com/jquense/yup): Yup is a JavaScript schema builder for value parsing and validation.
+- [start-server-and-test](https://www.npmjs.com/package/start-server-and-test): Starts server, waits for URL, then runs test command; when the tests end, shuts down server.
 
 <br>
 
@@ -67,6 +69,13 @@ from idea to production
 
 <br>
  
+ # 🚦 Tests
+- Unit tests with [Jest](https://jestjs.io/pt-BR/).
+- React Component tests with [React Testing Library](https://testing-library.com).
+- Integrations tests (End to End - E2E) with [Cypress](https://www.cypress.io).
+
+<br>
+
 # 📋 Test locally
 
 ```

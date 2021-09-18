@@ -1,6 +1,15 @@
-export default async function HttpClientService(url, { headers, body, ...options }) {
+export default async function HttpClientService(
+  url,
+  { headers, body, ...options },
+  fetchModule = fetch,
+) {
+  const responseNotOk = {
+    400: 'Requisição inválida',
+    404: 'URL não encontrada',
+  };
+
   try {
-    const response = await fetch(url, {
+    const response = await fetchModule(url, {
       headers: {
         ...headers,
         'Content-Type': 'application/json',
@@ -9,11 +18,11 @@ export default async function HttpClientService(url, { headers, body, ...options
       ...options,
     });
     if (!response.ok) {
-      throw new Error('Erro ao enviar mensagem');
+      throw new Error(responseNotOk[response.status]);
     }
     const jsonResponse = await response.json();
     return jsonResponse;
   } catch (error) {
-    throw new Error('Erro ao enviar mensagem');
+    throw new Error(error.message);
   }
 }

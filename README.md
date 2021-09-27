@@ -35,6 +35,8 @@ Portfolio created on Advanced Front-End Bootcamp from Alura.
 - [Lottie](https://github.com/crello/react-lottie): React/Typescript wrapper for awesome Airbnb's lottie-web lib.
 - [puppeteer](https://github.com/puppeteer/puppeteer): Puppeteer is a Node library which provides a high-level API to control Chrome or Chromium over the DevTools Protocol. 
 - [react-intersection-observer](https://www.npmjs.com/package/react-intersection-observer): React implementation of the Intersection Observer API to tell you when an element enters or leaves the viewport.
+- [yup](https://github.com/jquense/yup): Yup is a JavaScript schema builder for value parsing and validation.
+- [start-server-and-test](https://www.npmjs.com/package/start-server-and-test): Starts server, waits for URL, then runs test command; when the tests end, shuts down server.
 
 <br>
 
@@ -66,8 +68,9 @@ from idea to production
 - Trailing slash as default for project pages using `next.config.js`
 
 <br>
- 
-# 📋 Test locally
+
+
+# 📋 Run locally
 
 ```
 # clone repo
@@ -85,11 +88,30 @@ http://localhost:3000/
 
 <br>
 
-# 📋 Test online
+# 📋 Run online
 
 This project can be tested online, click on badge below:
 
 [![Vercel Badge](https://img.shields.io/badge/Vercel-000000?style=for-the-badge&logo=vercel&logoColor=white&link=https://portfolio-danilok.vercel.app)](https://danilo-yorinori-bootcamp-frontend-alura.vercel.app)
+
+<br>
+
+ # 🚦 Tests
+- Unit tests with [Jest](https://jestjs.io/pt-BR/).
+- React Component tests with [React Testing Library](https://testing-library.com).
+- Integrations tests (End to End - E2E) with [Cypress](https://www.cypress.io).
+
+<br>
+
+## Run unit tests
+1. Run all at once: `yarn test`
+2. Run and watch changes (development): `yarn test:watch`
+
+<br>
+
+## Run integration tests
+1. Headless: `yarn test:integration`
+2. On cypress test suite: `yarn test:integration:open`
 
 <br>
 

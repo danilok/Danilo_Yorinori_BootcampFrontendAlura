@@ -9,20 +9,38 @@ const CoverWrapper = styled.div`
   position: sticky;
   width: 100vw;
   height: 100vh;
-  background-image: url('https://picsum.photos/id/974/1920/1080');
-  background-repeat: no-repeat;
-  background-position: center;
+
+  background: #48a999;  /* fallback for old browsers */
+  background: -webkit-linear-gradient(to bottom, #78ffd6, #48a999);  /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to bottom, #78ffd6, #48a999); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
   text-align: center;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
 
+  &:after {
+    content: ' ';
+    display: block;
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    opacity: 0.2;
+    background-image: url('https://images.unsplash.com/photo-1454117096348-e4abbeba002c');
+    background-repeat: no-repeat;
+    background-position: left;
+  }
+
   color: ${({ theme }) => theme.colors.cover.main.color};
 
-  h1, h2 {
+  h1, h2, section {
     margin: 0;
-    text-shadow: 1px 1px 2px black, 0 0 1em #787ba2, 0 0 0.2em #9393ab
+    text-shadow: 1px 1px 2px black, 0 0 1em #787ba2, 0 0 0.2em #9393ab;
+    z-index: 10;
   }
 
   .scroll-down {

@@ -1,4 +1,5 @@
 module.exports = {
+  globalSetup: '<rootDir>/test.env.js',
   setupFilesAfterEnv: ['<rootDir>/jest.setup.js'],
   moduleDirectories: [
     '<rootDir>/node_modules',

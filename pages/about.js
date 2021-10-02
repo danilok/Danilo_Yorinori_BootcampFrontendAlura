@@ -1,10 +1,13 @@
 import React from 'react';
-import AboutScreen from '../src/components/screens/About';
+import AboutScreen, { getContent } from '../src/components/screens/About';
 import websitePageHOC from '../src/components/wrappers/WebsitePage/hoc';
 
-function AboutPage({ repos }) {
+function AboutPage({ repos, about }) {
   return (
-    <AboutScreen repos={repos} />
+    <AboutScreen
+      repos={repos}
+      about={about}
+    />
   );
 }
 
@@ -27,9 +30,12 @@ export async function getStaticProps() {
     url: repo.html_url,
   }));
 
+  const about = await getContent();
+
   return {
     props: {
       repos,
+      about,
     },
   };
 }

@@ -1,6 +1,7 @@
 import React from 'react';
 import ProjectScreen from '../../src/components/screens/Project';
 import websitePageHOC from '../../src/components/wrappers/WebsitePage/hoc';
+import CMSGraphQLClientService from '../../src/services/cms/CMSGraphQLClientService';
 
 function ProjectPage({ project }) {
   return (
@@ -16,20 +17,15 @@ export default websitePageHOC(ProjectPage);
 
 export async function getStaticProps({ params }) {
   try {
-    const projectsRes = await fetch('https://danilo-yorinori-bootcamp-frontend-alura-danilok.vercel.app/api/projects');
-    if (!projectsRes.ok) {
-      throw new Error('Não foi possível pegar os dados :(');
-    }
-    const projects = await projectsRes.json();
-
-    const dadosDaPagina = projects.find((project) => project.repo.split('/')[4] === params.project);
+    const cmsGraphQLClient = CMSGraphQLClientService();
+    const project = await cmsGraphQLClient.getProject(params.project);
 
     return {
       props: {
-        project: dadosDaPagina,
+        project,
         pageWrapperProps: {
           seoProps: {
-            headTitle: dadosDaPagina.title,
+            headTitle: project.title,
           },
           pageBoxProps: {
             justifyContent: 'space-between',
@@ -51,11 +47,8 @@ export async function getStaticProps({ params }) {
 
 export async function getStaticPaths() {
   try {
-    const projectsRes = await fetch('https://danilo-yorinori-bootcamp-frontend-alura-danilok.vercel.app/api/projects');
-    if (!projectsRes.ok) {
-      throw new Error('Não foi possível pegar os dados :(');
-    }
-    const projects = await projectsRes.json();
+    const cmsGraphQLClient = CMSGraphQLClientService();
+    const projects = await cmsGraphQLClient.getProjects();
 
     const paths = projects.reduce((valorAcumulado, project) => {
       const repoName = project.repo.split('/')[4];

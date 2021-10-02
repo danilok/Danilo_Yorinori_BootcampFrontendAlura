@@ -5,8 +5,11 @@ import Text from '../../foundation/Text';
 import SectionTitle from '../../commons/SectionTitle';
 import Grid from '../../foundation/layout/Grid';
 import AboutWrapper from './styles/AboutWrapper';
+import getContent from './getContent';
 
-export default function AboutScreen({ repos }) {
+export { getContent };
+
+export default function AboutScreen({ repos, about }) {
   const [showText, setShowText] = React.useState(true);
   const githubUser = 'danilok';
   return (
@@ -81,10 +84,7 @@ export default function AboutScreen({ repos }) {
                   variant="paragraph1"
                   textAlign="left"
                 >
-                  Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                  Ipsam corrupti tempore in vitae
-                  iure itaque possimus assumenda quis!
-                  Cum dicta facilis non dolor eum fugit tempora corporis atque omnis aperiam.
+                  {about.descriptionP1}
                 </Text>
               </Grid.Col>
               <Grid.Col>
@@ -96,12 +96,20 @@ export default function AboutScreen({ repos }) {
                     md: 'right',
                   }}
                 >
-                  Mussum Ipsum, cacilds vidis litro abertis.
-                  Admodum accumsan disputationi eu sit.
-                  Vide electram sadipscing et per.
-                  Per aumento de cachacis, eu reclamis.
-                  Paisis, filhis, espiritis santis.
-                  Cevadis im ampola pa arma uma pindureta.
+                  {about.descriptionP2}
+                </Text>
+              </Grid.Col>
+            </Grid.Row>
+            <Grid.Row>
+              <Grid.Col>
+                <Text
+                  tag="p"
+                  variant="paragraph1"
+                  textAlign={{
+                    xs: 'center',
+                  }}
+                >
+                  {about.local}
                 </Text>
               </Grid.Col>
             </Grid.Row>
@@ -178,4 +186,9 @@ AboutScreen.propTypes = {
     name: PropTypes.string,
     url: PropTypes.string,
   })).isRequired,
+  about: PropTypes.shape({
+    local: PropTypes.string,
+    descriptionP1: PropTypes.string,
+    descriptionP2: PropTypes.string,
+  }).isRequired,
 };

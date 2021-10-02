@@ -65,13 +65,11 @@ export default function ProjectScreen({ project }) {
               textAlign="left"
             >
               {project.text && (
-                <Text
-                  tag="p"
-                  variant="paragraph1"
-                >
-                  {project.text}
-                  <br />
-                </Text>
+                <Box
+                  dangerouslySetInnerHTML={{
+                    __html: project.text,
+                  }}
+                />
               )}
               <Text
                 tag="p"
@@ -86,6 +84,7 @@ export default function ProjectScreen({ project }) {
                 variant="paragraph1"
                 color="secondary.main"
                 href={project.url}
+                target="_blank"
               >
                 {project.url}
               </Text>

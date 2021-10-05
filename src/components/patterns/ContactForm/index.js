@@ -93,13 +93,9 @@ export function FormContent({ onClose, onSubmit }) {
         await contactService
           .sendMessage(contactMessageDTO);
 
-        setTimeout(() => {
-          setFormState(formStates.DONE);
-        }, 1000);
+        setFormState(formStates.DONE);
       } catch (error) {
-        setTimeout(() => {
-          setFormState(formStates.ERROR);
-        }, 1000);
+        setFormState(formStates.ERROR);
       }
     },
     validateSchema: async (values) => contactSchema.validate(values, { abortEarly: false }),
@@ -123,7 +119,9 @@ export function FormContent({ onClose, onSubmit }) {
       id="contactForm"
       onSubmit={onSubmit || form.handleSubmit}
     >
-      <CloseButton onClose={onClose} resetForm={resetForm} />
+      {onClose && (
+        <CloseButton onClose={onClose} resetForm={resetForm} />
+      )}
 
       <Text
         as="p"
@@ -243,6 +241,7 @@ export function FormContent({ onClose, onSubmit }) {
             md: '60px',
           }}
           animation={loadingAnimation}
+          loop
         />
       )}
 

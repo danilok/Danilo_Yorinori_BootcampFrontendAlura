@@ -10,7 +10,12 @@ const LottieWrapper = styled(Lottie)`
   ${propToStyle('height')}
 `;
 
-export default function FormFeedback({ width, height, animation }) {
+export default function FormFeedback({
+  width,
+  height,
+  animation,
+  loop,
+}) {
   return (
     <Box
       display="flex"
@@ -21,7 +26,11 @@ export default function FormFeedback({ width, height, animation }) {
         width={width}
         height={height}
         className="lottie-container basic"
-        config={{ animationData: animation, loop: false, autoplay: true }}
+        config={{
+          animationData: animation,
+          loop,
+          autoplay: true,
+        }}
       />
     </Box>
   );
@@ -31,9 +40,11 @@ FormFeedback.propTypes = {
   width: PropTypes.shape({}),
   height: PropTypes.shape({}),
   animation: PropTypes.shape({}).isRequired,
+  loop: PropTypes.bool,
 };
 
 FormFeedback.defaultProps = {
   width: {},
   height: {},
+  loop: false,
 };

@@ -44,7 +44,7 @@ const footerLinks = [
 ];
 
 export const WebsitePageContext = React.createContext({
-  toogleModalContato: () => { },
+  toggleModalContato: () => { },
   animation: () => { },
 });
 
@@ -52,6 +52,7 @@ export default function WebsitePageWrapper({
   children,
   seoProps,
   coverProps,
+  modalDisplayProps,
 }) {
   const [modalOpened, setModalOpened] = React.useState(false);
   const animation = useAnimation();
@@ -95,16 +96,18 @@ export default function WebsitePageWrapper({
           links={headerLinks}
           animation={animation}
         />
-        <Modal
-          isOpen={modalOpened}
-          onClose={() => {
-            setModalOpened(false);
-          }}
-        >
-          {(modalProps) => (
-            <ContactForm modalProps={modalProps} />
-          )}
-        </Modal>
+        {modalDisplayProps && (
+          <Modal
+            isOpen={modalOpened}
+            onClose={() => {
+              setModalOpened(false);
+            }}
+          >
+            {(modalProps) => (
+              <ContactForm modalProps={modalProps} />
+            )}
+          </Modal>
+        )}
 
         {children}
 
@@ -120,6 +123,7 @@ WebsitePageWrapper.defaultProps = {
   coverProps: {
     display: false,
   },
+  modalDisplayProps: true,
 };
 
 WebsitePageWrapper.propTypes = {
@@ -137,4 +141,5 @@ WebsitePageWrapper.propTypes = {
   coverProps: PropTypes.shape({
     display: PropTypes.bool,
   }),
+  modalDisplayProps: PropTypes.bool,
 };

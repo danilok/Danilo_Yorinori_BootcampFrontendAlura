@@ -1,8 +1,8 @@
 import React from 'react';
 import styled, { css } from 'styled-components';
 import { PropTypes } from 'prop-types';
-import Text from '../../foundation/Text';
 import breakpointsMedia from '../../../theme/utils/breakpointsMedia';
+import Box from '../../foundation/layout/Box';
 
 const CardTextWrapper = styled.div`
   ${breakpointsMedia({
@@ -31,17 +31,16 @@ const CardTextWrapper = styled.div`
   }}
 `;
 
-export default function CardText({ children, isHighlighted, ...props }) {
+export default function CardText({ children, isHighlighted }) {
   return (
     <CardTextWrapper isHighlighted={isHighlighted}>
-      <Text
-        as="p"
-        variant="paragraph1"
-        // eslint-disable-next-line react/jsx-props-no-spreading
-        {...props}
-      >
-        {children.length > 250 ? `${children.substring(0, 250)}...` : children}
-      </Text>
+      {isHighlighted && children && (
+        <Box
+          dangerouslySetInnerHTML={{
+            __html: children,
+          }}
+        />
+      )}
     </CardTextWrapper>
   );
 }

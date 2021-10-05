@@ -51,7 +51,7 @@ HeaderWrapper.Logo.Button = styled.button`
 
   &:hover,
   &:focus {
-    opacity: .5;
+    opacity: 1;
   }
 
   &:visited {
@@ -80,7 +80,8 @@ HeaderWrapper.Navbar = styled.nav`
     &:hover,
     &:focus {
       font-weight: 500;
-      color: ${({ theme }) => theme.colors.tertiary.main.color};
+      color: ${({ theme }) => theme.colors.background.dark.color};
+      opacity: 1;
     }
   }
 `;

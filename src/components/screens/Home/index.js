@@ -23,9 +23,7 @@ export default function HomeScreen() {
   return (
     <ProjectsWrapper
       cards={cards}
-      // isOpen={modalOpened}
       onClickContact={() => {
-        // setModalOpened(!modalOpened);
         websitePageContext.toggleModalContato();
       }}
     />

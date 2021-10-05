@@ -13,5 +13,6 @@ export default websitePageHOC(ContactPage, {
     seoProps: {
       headTitle: 'Contato',
     },
+    modalDisplayProps: true,
   },
 });

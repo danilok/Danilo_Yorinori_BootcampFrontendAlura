@@ -1,6 +1,7 @@
 /* eslint-disable @next/next/no-img-element */
 import React from 'react';
 import PropTypes from 'prop-types';
+import * as yup from 'yup';
 import styled, { css } from 'styled-components';
 import Grid from '../../foundation/layout/Grid';
 import Box from '../../foundation/layout/Box';
@@ -13,6 +14,8 @@ import errorAnimation from './animations/error.json';
 import loadingAnimation from './animations/loading.json';
 import successAnimation from './animations/success.json';
 import FormFeedback from '../FormFeedback';
+import useForm from '../../../infra/hooks/form/useForm';
+import contactService from '../../../services/contact/contactService';
 
 const Button = styled.div`
   border: 0px;
@@ -46,11 +49,6 @@ const Form = styled.form`
   })}
 `;
 
-function validateEmail(email) {
-  const re = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-  return re.test(String(email).toLowerCase());
-}
-
 const formStates = {
   DEFAULT: 'DEFAULT',
   LOADING: 'LOADING',
@@ -58,78 +56,72 @@ const formStates = {
   ERROR: 'ERROR',
 };
 
-function FormContent({ onClose }) {
-  const [isFormSubmitted, setIsFormSubmitted] = React.useState(false);
+const contactSchema = yup.object().shape({
+  name: yup
+    .string()
+    .required('"Nome" é obrigatório')
+    .min(2, 'Preencha ao menos 2 caracteres'),
+  email: yup
+    .string()
+    .email('Email inválido')
+    .required('"Email" é obrigatório'),
+  message: yup
+    .string()
+    .required('"Mensagem" é obrigatório'),
+});
+
+export function FormContent({ onClose, onSubmit }) {
   const [formState, setFormState] = React.useState(formStates.DEFAULT);
-  const [contactMessageData, setContactMessageData] = React.useState({
+  const initialValues = {
     name: '',
     email: '',
     message: '',
+  };
+
+  const form = useForm({
+    initialValues,
+    onSubmit: async (values) => {
+      form.setIsFormDisabled(true);
+      setFormState(formStates.LOADING);
+      const contactMessageDTO = {
+        name: values.name,
+        email: values.email,
+        message: values.message,
+      };
+
+      try {
+        await contactService
+          .sendMessage(contactMessageDTO);
+
+        setFormState(formStates.DONE);
+      } catch (error) {
+        setFormState(formStates.ERROR);
+      }
+    },
+    validateSchema: async (values) => contactSchema.validate(values, { abortEarly: false }),
   });
 
-  function handleChange(event) {
-    const fieldName = event.target.getAttribute('name');
-    setContactMessageData({
-      ...contactMessageData,
-      [fieldName]: event.target.value,
-    });
-  }
-
   function resetForm() {
-    setIsFormSubmitted(false);
+    if (formState !== formStates.DONE) {
+      return;
+    }
+
     setFormState(formStates.DEFAULT);
-    setContactMessageData({
+    form.handleReset({
       name: '',
       email: '',
       message: '',
     });
   }
 
-  const anyEmptyFields = Object.values(contactMessageData)
-    .reduce((valid, field) => (field.length === 0 ? true : valid), false);
-
-  const validEmail = validateEmail(contactMessageData.email);
-
-  const isFormInvalid = anyEmptyFields || !validEmail;
-
   return (
     <Form
-      onSubmit={async (event) => {
-        event.preventDefault();
-
-        setIsFormSubmitted(true);
-
-        const contactMessageDTO = {
-          name: contactMessageData.name,
-          email: contactMessageData.email,
-          message: contactMessageData.message,
-        };
-
-        try {
-          setFormState(formStates.LOADING);
-          const respostaDoServidor = await fetch('https://contact-form-api-jamstack.herokuapp.com/message', {
-            method: 'POST',
-            headers: {
-              'Content-Type': 'application/json',
-            },
-            body: JSON.stringify(contactMessageDTO),
-          });
-          if (!respostaDoServidor.ok) {
-            throw Error('Não foi possível enviar a mensagem');
-          }
-
-          setTimeout(() => {
-            setFormState(formStates.DONE);
-          }, 1000);
-        } catch (error) {
-          // eslint-disable-next-line no-console
-          setTimeout(() => {
-            setFormState(formStates.ERROR);
-          }, 1000);
-        }
-      }}
+      id="contactForm"
+      onSubmit={onSubmit || form.handleSubmit}
     >
-      <CloseButton onClose={onClose} resetForm={resetForm} />
+      {onClose && (
+        <CloseButton onClose={onClose} resetForm={resetForm} />
+      )}
 
       <Text
         as="p"
@@ -166,8 +158,12 @@ function FormContent({ onClose }) {
             id="name"
             placeholder="Fulano de tal"
             name="name"
-            value={contactMessageData.name}
-            onChange={handleChange}
+            value={form.values.name}
+            onChange={form.handleChange}
+            error={form.errors.name}
+            isTouched={form.touchedFields.name}
+            onBlur={form.handleBlur}
+            disabled={formStates.LOADING === formState || formStates.DONE === formState}
           />
         </div>
         <div>
@@ -181,18 +177,13 @@ function FormContent({ onClose }) {
           <TextField
             placeholder="fulano@email.com"
             name="email"
-            value={contactMessageData.email}
-            onChange={handleChange}
+            value={form.values.email}
+            onChange={form.handleChange}
+            error={form.errors.email}
+            isTouched={form.touchedFields.email}
+            onBlur={form.handleBlur}
+            disabled={formStates.LOADING === formState || formStates.DONE === formState}
           />
-          {!validEmail && contactMessageData.email.length >= 0 && (
-            <Text
-              as="span"
-              variant="smallestException"
-              color="danger.main"
-            >
-              Email inválido
-            </Text>
-          )}
         </div>
         <div>
           <Text
@@ -206,12 +197,16 @@ function FormContent({ onClose }) {
             tag="textarea"
             placeholder="Escreva sua mensagem"
             name="message"
-            value={contactMessageData.message}
-            onChange={handleChange}
+            value={form.values.message}
+            onChange={form.handleChange}
+            error={form.errors.message}
+            isTouched={form.touchedFields.message}
+            onBlur={form.handleBlur}
+            disabled={formStates.LOADING === formState || formStates.DONE === formState}
           />
         </div>
       </Box>
-      {!isFormSubmitted && (
+      {!form.isFormSubmitted && (
         <Box
           display="flex"
           flexDirection="row"
@@ -220,10 +215,10 @@ function FormContent({ onClose }) {
           <Button
             as="button"
             type="submit"
-            disabled={isFormInvalid}
+            disabled={form.isFormDisabled}
           >
             <Text
-              as="label"
+              as="span"
               variant="label"
               color="primary.main"
               margin="0 10px 0 0"
@@ -235,7 +230,7 @@ function FormContent({ onClose }) {
         </Box>
       )}
 
-      {isFormSubmitted && formState === formStates.LOADING && (
+      {form.isFormSubmitted && formState === formStates.LOADING && (
         <FormFeedback
           width={{
             xs: '50px',
@@ -246,10 +241,11 @@ function FormContent({ onClose }) {
             md: '60px',
           }}
           animation={loadingAnimation}
+          loop
         />
       )}
 
-      {isFormSubmitted && formState === formStates.DONE && (
+      {form.isFormSubmitted && formState === formStates.DONE && (
         <FormFeedback
           width={{
             xs: '70px',
@@ -263,7 +259,7 @@ function FormContent({ onClose }) {
         />
       )}
 
-      {isFormSubmitted && formState === formStates.ERROR && (
+      {form.isFormSubmitted && formState === formStates.ERROR && (
         <FormFeedback
           width={{
             xs: '70px',
@@ -281,7 +277,13 @@ function FormContent({ onClose }) {
 }
 
 FormContent.propTypes = {
-  onClose: PropTypes.func.isRequired,
+  onClose: PropTypes.func,
+  onSubmit: PropTypes.func,
+};
+
+FormContent.defaultProps = {
+  onClose: null,
+  onSubmit: null,
 };
 
 export default function ContactForm({ modalProps }) {

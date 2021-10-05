@@ -10,7 +10,6 @@ on:
 
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
-  # This workflow contains a single job called "build"
   lint:
     # The type of runner that the job will run on
     runs-on: ubuntu-latest
@@ -34,3 +33,56 @@ jobs:
       # Run lint
       - name: Roda o Linter!
         run: yarn lint
+
+  unit_tests:
+    name: Unit Tests
+    runs-on: ubuntu-latest # The type of runner that the job will run on
+    steps: # Steps represent a sequence of tasks that will be executed as part of the job
+      # [Pre Build-step]
+      - uses: actions/checkout@v2 ## Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
+      - uses: actions/setup-node@v1
+        with:
+          node-version: '14.17.1'
+      - name: Get yarn cache directory path
+        id: yarn-cache-dir-path
+        run: echo "::set-output name=dir::$(yarn cache dir)"
+      - uses: actions/cache@v2
+        with:
+          path: ${{ steps.yarn-cache-dir-path.outputs.dir }}
+          key: ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}
+      # ####################
+
+      # Commands that will run:
+      - name: Install Packages
+        run: yarn --prefer-offline
+
+      - name: Run Unit Tests
+        run: yarn test
+
+  integration_tests:
+    name: Integration Tests
+    runs-on: ubuntu-latest # The type of runner that the job will run on
+    steps: # Steps represent a sequence of tasks that will be executed as part of the job
+      # [Pre Build-step]
+      - uses: actions/checkout@v2 ## Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
+      - uses: actions/setup-node@v1
+        with:
+          node-version: '14.15.0'
+      - name: Get yarn cache directory path
+        id: yarn-cache-dir-path
+        run: echo "::set-output name=dir::$(yarn cache dir)"
+      - uses: actions/cache@v2
+        with:
+          path: ${{ steps.yarn-cache-dir-path.outputs.dir }}
+          key: ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}
+      # ####################
+
+      # Commands that will run:
+      - name: Install Packages
+        run: yarn --prefer-offline
+
+      - name: Run Integration Tests
+        env:
+          DATO_CMS_TOKEN: ${{ secrets.DATO_CMS_TOKEN }}
+          NEXT_PUBLIC_DATOCMS_URL: ${{ secrets.NEXT_PUBLIC_DATOCMS_URL }}
+        run: yarn test:integration:build 

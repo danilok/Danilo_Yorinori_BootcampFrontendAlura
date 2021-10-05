@@ -46,6 +46,7 @@ export default function Contact({ onClick, ...props }) {
         Entre em contato
       </Text>
       <Button
+        id="contactBtn"
         type="button"
         onClick={() => onClick()}
       >

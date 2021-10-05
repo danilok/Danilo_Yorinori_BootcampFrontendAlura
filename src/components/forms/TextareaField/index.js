@@ -1,5 +1,6 @@
+/* eslint-disable react/jsx-props-no-spreading */
 import React from 'react';
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 import PropTypes from 'prop-types';
 import Text from '../../foundation/Text';
 
@@ -15,6 +16,19 @@ const Textarea = styled(Text)`
   outline: 0;
   border-radius: ${({ theme }) => theme.borderRadius};
   border: 1px solid ${({ theme }) => theme.colors.background.dark.color};
+
+  ${({ theme, isFieldInvalid }) => isFieldInvalid && css`
+    border-color: ${theme.colors.danger.main.color};
+    & + span {
+      color: ${theme.colors.danger.main.color};
+      font-size: 11px;
+    }
+  `}
+
+  &:disabled {
+    cursor: not-allowed;
+    opacity: .5;
+  }
 `;
 
 Textarea.defaultProps = {
@@ -28,7 +42,12 @@ export default function TextareaField({
   onChange,
   value,
   rows,
+  error,
+  isTouched,
+  ...props
 }) {
+  const hasError = Boolean(error);
+  const isFieldInvalid = hasError && isTouched;
   return (
     <TextareaWrapper>
       <Textarea
@@ -37,7 +56,19 @@ export default function TextareaField({
         onChange={onChange}
         value={value}
         rows={rows}
+        isFieldInvalid={isFieldInvalid}
+        {...props}
       />
+
+      {isFieldInvalid && (
+        <Text
+          variant="smallestException"
+          color="danger.main"
+          role="alert"
+        >
+          {error}
+        </Text>
+      )}
     </TextareaWrapper>
   );
 }
@@ -48,8 +79,12 @@ TextareaField.propTypes = {
   onChange: PropTypes.func.isRequired,
   value: PropTypes.string.isRequired,
   rows: PropTypes.string,
+  error: PropTypes.string,
+  isTouched: PropTypes.bool,
 };
 
 TextareaField.defaultProps = {
   rows: '3',
+  error: '',
+  isTouched: false,
 };

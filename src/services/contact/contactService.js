@@ -5,7 +5,7 @@ const contactService = {
     contactDTO,
     HttpClientModule = HttpClientService,
   ) {
-    const response = await HttpClientModule('https://contact-form-api-jamstack.herokuapp.com/message', {
+    const response = await HttpClientModule('/api/messages', {
       method: 'POST',
       body: contactDTO,
     });

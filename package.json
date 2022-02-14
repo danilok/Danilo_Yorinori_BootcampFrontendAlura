@@ -47,7 +47,7 @@
     "@types/prop-types": "^15.7.4",
     "@types/styled-components": "^5.1.22",
     "babel-plugin-styled-components": "^1.12.0",
-    "cypress": "^8.5.0",
+    "cypress": "^9.4.1",
     "cz-conventional-changelog": "3.3.0",
     "eslint": "^7.32.0",
     "eslint-config-airbnb": "^18.2.1",

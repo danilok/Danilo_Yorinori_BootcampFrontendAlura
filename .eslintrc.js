@@ -23,6 +23,14 @@ module.exports = {
   ],
   rules: {
     'react/jsx-filename-extension': [1, { extensions: ['.js', '.jsx'] }],
+    'react/jsx-no-bind': [1, {
+      ignoreDOMComponents: true,
+      ignoreRefs: true,
+      allowArrowFunctions: true,
+      allowFunctions: true,
+      allowBind: true,
+    }],
+    '@next/next/no-document-import-in-page': 'off',
   },
   overrides: [
     {

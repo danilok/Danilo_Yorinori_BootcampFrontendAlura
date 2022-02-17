@@ -22,7 +22,7 @@ jobs:
       # Set nodejs version
       - uses: actions/setup-node@v1
         with:
-          node-version: '14.15.1'
+          node-version: '14.17.0'
 
       # Prints out nodejs version
       - name: Node Version
@@ -42,7 +42,7 @@ jobs:
       - uses: actions/checkout@v2 ## Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/setup-node@v1
         with:
-          node-version: '14.17.1'
+          node-version: '14.17.0'
       - name: Get yarn cache directory path
         id: yarn-cache-dir-path
         run: echo "::set-output name=dir::$(yarn cache dir)"

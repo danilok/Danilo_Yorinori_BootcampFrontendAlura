@@ -19,7 +19,7 @@
     "@crello/react-lottie": "^0.0.11",
     "@next/env": "^12.1.4",
     "chrome-aws-lambda": "^10.1.0",
-    "datocms-client": "^3.5.14",
+    "datocms-client": "^3.5.19",
     "framer-motion": "^6.2.9",
     "graphql": "^15.8.0",
     "graphql-request": "^4.0.0",

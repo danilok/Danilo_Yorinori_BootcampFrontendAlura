@@ -2742,10 +2742,10 @@ data-urls@^2.0.0:
     whatwg-mimetype "^2.3.0"
     whatwg-url "^8.0.0"
 
-datocms-client@^3.5.14:
-  version "3.5.14"
-  resolved "https://registry.yarnpkg.com/datocms-client/-/datocms-client-3.5.14.tgz#7d37c720542dbb36367027cde388b58185f43077"
-  integrity sha512-q3dB/nNc3gy6IfnBKH52tfzGc2vrmqUhCvy1RWYqI1hUFQefm/M/xaC7UYR0RaqkkWwULSX5WgKHqkEgupyb9g==
+datocms-client@^3.5.19:
+  version "3.5.19"
+  resolved "https://registry.yarnpkg.com/datocms-client/-/datocms-client-3.5.19.tgz#357c22b2a6bafc4be0f14ad7073f12a247330c0c"
+  integrity sha512-gN7zLB1s6ct+PeycAXCdod82FHeVlUuLjDeT/KZ9YXbVnOKmURbGU0I9qr3PHIZ4uv7n/UMm4Q9kS3HA2tFkxA==
   dependencies:
     "@iarna/toml" "^2.2.3"
     arr-diff "^4.0.0"
@@ -2758,6 +2758,7 @@ datocms-client@^3.5.14:
     cross-env "^6.0.3"
     cross-fetch "^3.1.4"
     datocms-contentful-to-structured-text "^1.1.3"
+    datocms-structured-text-to-plain-text "^2.0.1"
     datocms-structured-text-utils "^1.0.15"
     denodeify "^1.2.1"
     docopt "^0.6.2"
@@ -2770,6 +2771,7 @@ datocms-client@^3.5.14:
     js-yaml "^3.13.1"
     json-schema-ref-parser "^7.1.2"
     jsonref "^5.2.1"
+    marked "^4.0.12"
     mime-types "^2.1.25"
     mkdirp "^0.5.1"
     object.omit "^3.0.0"
@@ -2784,6 +2786,7 @@ datocms-client@^3.5.14:
     request "^2.88.0"
     rimraf "^3.0.0"
     speakingurl "^14.0.1"
+    striptags "^3.2.0"
     tmp "^0.2.1"
     traverse "^0.6.6"
     truncate "^2.1.0"
@@ -2799,10 +2802,32 @@ datocms-contentful-to-structured-text@^1.1.3:
     "@contentful/rich-text-types" "^14.1.2"
     datocms-structured-text-utils "^1.2.0"
 
+datocms-structured-text-generic-html-renderer@^2.0.4:
+  version "2.0.4"
+  resolved "https://registry.yarnpkg.com/datocms-structured-text-generic-html-renderer/-/datocms-structured-text-generic-html-renderer-2.0.4.tgz#df50488b486a20f45583c2e685998873c843c1dc"
+  integrity sha512-Rv5Y1eC9NZXNSz3FHvHGFvGnKEEbvG1kQWlylpCSoeDBZPBwSWAFD/ixIAOfa8Yk1EVpmoQd3KQd725WKYJwRQ==
+  dependencies:
+    datocms-structured-text-utils "^2.0.4"
+
+datocms-structured-text-to-plain-text@^2.0.1:
+  version "2.0.4"
+  resolved "https://registry.yarnpkg.com/datocms-structured-text-to-plain-text/-/datocms-structured-text-to-plain-text-2.0.4.tgz#9798c5ea06417e7da4b4b14d1ed3dd9c0d550944"
+  integrity sha512-/0VQNo6xZXiGdnHCTIoEmdnwD1JZVMMsyEfSy2SNF7QW4YAOz8bKtWSwCT4cYRKrhA/jZWCq7G4u0kPmiy1FWg==
+  dependencies:
+    datocms-structured-text-generic-html-renderer "^2.0.4"
+    datocms-structured-text-utils "^2.0.4"
+
 datocms-structured-text-utils@^1.0.15, datocms-structured-text-utils@^1.2.0:
   version "1.2.0"
   resolved "https://registry.yarnpkg.com/datocms-structured-text-utils/-/datocms-structured-text-utils-1.2.0.tgz#ccbeb06c97f9d0f282750093fc1be0f2e2b0269c"
   integrity sha512-8qfpSWU/nVrMr8C0aT5n16WN0/KQbtYD2GJXd9WDf01bfr+WzJCi5szZF1dBLhD2zhs41A4gtO3aM4J1CQe4wA==
+  dependencies:
+    array-flatten "^3.0.0"
+
+datocms-structured-text-utils@^2.0.4:
+  version "2.0.4"
+  resolved "https://registry.yarnpkg.com/datocms-structured-text-utils/-/datocms-structured-text-utils-2.0.4.tgz#c429e6b74b90fbac228e1d28b8919f9af2c4bfff"
+  integrity sha512-JxDdJaipm3FePOli9s82MRrBDnlPP9GYhqajQJaYEu4V1jwUSZzbVkYVKMfVHUfP0Gh0VSCxPHjAGGAN1nWMJg==
   dependencies:
     array-flatten "^3.0.0"
 
@@ -5495,6 +5520,11 @@ map-stream@~0.1.0:
   resolved "https://registry.yarnpkg.com/map-stream/-/map-stream-0.1.0.tgz#e56aa94c4c8055a16404a0674b78f215f7c8e194"
   integrity sha1-5WqpTEyAVaFkBKBnS3jyFffI4ZQ=
 
+marked@^4.0.12:
+  version "4.0.13"
+  resolved "https://registry.yarnpkg.com/marked/-/marked-4.0.13.tgz#4fd46ca93da46448f3d83f054d938c4f905a258d"
+  integrity sha512-lS/ZCa4X0gsRcfWs1eoh6dLnHr9kVH3K1t2X4M/tTtNouhZ7anS1Csb6464VGLQHv8b2Tw1cLeZQs58Jav8Rzw==
+
 memoizee@0.3.x:
   version "0.3.10"
   resolved "https://registry.yarnpkg.com/memoizee/-/memoizee-0.3.10.tgz#4eca0d8aed39ec9d017f4c5c2f2f6432f42e5c8f"
@@ -6976,6 +7006,11 @@ strip-json-comments@^3.1.0, strip-json-comments@^3.1.1:
   version "3.1.1"
   resolved "https://registry.yarnpkg.com/strip-json-comments/-/strip-json-comments-3.1.1.tgz#31f1281b3832630434831c310c01cccda8cbe006"
   integrity sha512-6fPc+R4ihwqP6N/aIv2f1gMH8lOVtWQHoqC4yK6oSDVVocumAsfCqjkXnqiYMhmMwS/mEHLp7Vehlt3ql6lEig==
+
+striptags@^3.2.0:
+  version "3.2.0"
+  resolved "https://registry.yarnpkg.com/striptags/-/striptags-3.2.0.tgz#cc74a137db2de8b0b9a370006334161f7dd67052"
+  integrity sha512-g45ZOGzHDMe2bdYMdIvdAfCQkCTDMGBazSw1ypMowwGIee7ZQ5dU0rBJ8Jqgl+jAKIv4dbeE1jscZq9wid1Tkw==
 
 style-value-types@5.0.0:
   version "5.0.0"

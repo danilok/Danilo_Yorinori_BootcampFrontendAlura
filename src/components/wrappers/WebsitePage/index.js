@@ -57,14 +57,16 @@ export default function WebsitePageWrapper({
   const [modalOpened, setModalOpened] = React.useState(false);
   const animation = useAnimation();
 
+  const value = React.useMemo(() => ({
+    toggleModalContato: () => {
+      setModalOpened(!modalOpened);
+    },
+    animation,
+  }), [modalOpened]);
+
   return (
     <WebsitePageContext.Provider
-      value={{
-        toggleModalContato: () => {
-          setModalOpened(!modalOpened);
-        },
-        animation,
-      }}
+      value={value}
     >
       <SEO
         {...seoProps}

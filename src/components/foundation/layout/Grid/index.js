@@ -153,4 +153,4 @@ Col.defaultProps = {
   offset: {},
 };
 
-export { Grid as default };
+export default Grid;

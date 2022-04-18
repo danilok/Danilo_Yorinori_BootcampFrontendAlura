@@ -91,31 +91,29 @@ const CoverWrapper = styled.div`
 
 export default function Cover({ user }) {
   return (
-    <>
-      <CoverWrapper>
-        <Text
-          variant="coverH1"
-          tag="h1"
-        >
-          {user}
-        </Text>
-        <Text
-          variant="coverH2"
-          tag="h2"
-          as={motion.section}
-          transition={{ delay: 0, duration: 0.5 }}
-          variants={{
-            show: { opacity: 1, y: '0' },
-            hidden: { opacity: 0, y: '100%' },
-          }}
-          initial="hidden"
-          animate="show"
-        >
-          Portfolio
-        </Text>
-        <div className="scroll-down" />
-      </CoverWrapper>
-    </>
+    <CoverWrapper>
+      <Text
+        variant="coverH1"
+        tag="h1"
+      >
+        {user}
+      </Text>
+      <Text
+        variant="coverH2"
+        tag="h2"
+        as={motion.section}
+        transition={{ delay: 0, duration: 0.5 }}
+        variants={{
+          show: { opacity: 1, y: '0' },
+          hidden: { opacity: 0, y: '100%' },
+        }}
+        initial="hidden"
+        animate="show"
+      >
+        Portfolio
+      </Text>
+      <div className="scroll-down" />
+    </CoverWrapper>
   );
 }
 

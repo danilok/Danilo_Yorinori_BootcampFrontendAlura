@@ -9,14 +9,17 @@ export default function websitePageHOC(
   PageComponent,
   { pageWrapperProps } = { pageWrapperProps: {} },
 ) {
-  return (props) => (
-    <WebsiteGlobalProvider>
-      <WebsitePageWrapper
-        {...pageWrapperProps}
-        {...props.pageWrapperProps}
-      >
-        <PageComponent {...props} />
-      </WebsitePageWrapper>
-    </WebsiteGlobalProvider>
-  );
+  function websitePageHoc(props) {
+    return (
+      <WebsiteGlobalProvider>
+        <WebsitePageWrapper
+          {...pageWrapperProps}
+          {...props.pageWrapperProps}
+        >
+          <PageComponent {...props} />
+        </WebsitePageWrapper>
+      </WebsiteGlobalProvider>
+    );
+  }
+  return websitePageHoc;
 }

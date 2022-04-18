@@ -1,4 +1,5 @@
-import { act, renderHook } from '@testing-library/react-hooks';
+import { renderHook } from '@testing-library/react';
+import { act } from '@testing-library/react-hooks';
 import useForm from './index';
 
 const onSubmit = jest.fn();

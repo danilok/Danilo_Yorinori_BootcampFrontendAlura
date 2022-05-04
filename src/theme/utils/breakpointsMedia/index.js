@@ -7,7 +7,7 @@ export default function breakpointsMedia(cssByBreakpoints) {
     .filter((breakpointName) => Boolean(cssByBreakpoints[breakpointName])
       && breakpoints[breakpointName] !== undefined)
     .map((breakpointName) => css`
-        @media screen and (min-width : ${breakpoints[breakpointName]}px) {
+        @media screen and (min-width: ${breakpoints[breakpointName]}px) {
           ${cssByBreakpoints[breakpointName]}
         }
     `);

@@ -31,6 +31,7 @@ const CloseButtonWrapper = styled.div`
 export default function CloseButton({ onClose, resetForm }) {
   return (
     <CloseButtonWrapper
+      id="closeBtn"
       onClick={() => {
         resetForm();
         onClose();

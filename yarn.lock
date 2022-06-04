@@ -2760,10 +2760,10 @@ data-urls@^3.0.1:
     whatwg-mimetype "^3.0.0"
     whatwg-url "^11.0.0"
 
-datocms-client@^3.5.19:
-  version "3.5.19"
-  resolved "https://registry.yarnpkg.com/datocms-client/-/datocms-client-3.5.19.tgz#357c22b2a6bafc4be0f14ad7073f12a247330c0c"
-  integrity sha512-gN7zLB1s6ct+PeycAXCdod82FHeVlUuLjDeT/KZ9YXbVnOKmURbGU0I9qr3PHIZ4uv7n/UMm4Q9kS3HA2tFkxA==
+datocms-client@^3.5.21:
+  version "3.5.21"
+  resolved "https://registry.yarnpkg.com/datocms-client/-/datocms-client-3.5.21.tgz#ec3e41ce0143cd7ac3a400c89a53cda47cab3428"
+  integrity sha512-CnJn5xQKExSozf8lCZEWkebJ7bdNpjlGXBqYr9sLYtyjDEW6GBRQeqJq5XpwCOd84Q8146nbT8iVKqi2u8NtNQ==
   dependencies:
     "@iarna/toml" "^2.2.3"
     arr-diff "^4.0.0"

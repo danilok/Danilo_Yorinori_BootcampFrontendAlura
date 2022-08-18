@@ -46,7 +46,11 @@ describe('propToStyle()', () => {
     test('renders all breakpoints resolutions', () => {
       const propToStyleResult = propToStyle('textAlign');
       // <Text align="{ xs: 'center', md: 'right' }" />
-      const componentProps = { textAlign: { xs: 'center', md: 'right', sm: 'center', lg: 'right', xl: 'left' } };
+      const componentProps = {
+        textAlign: {
+          xs: 'center', md: 'right', sm: 'center', lg: 'right', xl: 'left',
+        },
+      };
       const styleResult = propToStyleResult(componentProps);
       expect(styleResult).toMatchSnapshot();
     });

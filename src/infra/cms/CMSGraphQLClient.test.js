@@ -28,24 +28,28 @@ describe('CMSGraphQLClient()', () => {
         CMSGraphQLClient({ preview: true }, GraphQLClient);
         expect(GraphQLClient).toHaveBeenCalledTimes(1);
         expect(GraphQLClient)
-          .toHaveBeenLastCalledWith(`${process.env.NEXT_PUBLIC_DATOCMS_URL}preview`,
+          .toHaveBeenLastCalledWith(
+            `${process.env.NEXT_PUBLIC_DATOCMS_URL}preview`,
             {
               headers: {
                 Authorization: `Bearer ${process.env.DATO_CMS_TOKEN}`,
               },
-            });
+            },
+          );
       });
 
       test('without preview', async () => {
         CMSGraphQLClient({ preview: false }, GraphQLClient);
         expect(GraphQLClient).toHaveBeenCalledTimes(1);
         expect(GraphQLClient)
-          .toHaveBeenLastCalledWith(process.env.NEXT_PUBLIC_DATOCMS_URL,
+          .toHaveBeenLastCalledWith(
+            process.env.NEXT_PUBLIC_DATOCMS_URL,
             {
               headers: {
                 Authorization: `Bearer ${process.env.DATO_CMS_TOKEN}`,
               },
-            });
+            },
+          );
       });
     });
   });

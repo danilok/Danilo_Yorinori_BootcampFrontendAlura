@@ -32,11 +32,14 @@ describe('httpClientService', () => {
   describe('when user makes a request', () => {
     describe('and it succeed', () => {
       test('get a response that matches sent body', async () => {
-        const response = await HttpClientService(someUrl, {
-          method: 'POST',
-          body: JSON.stringify(successResponse),
-        },
-        fetchModule);
+        const response = await HttpClientService(
+          someUrl,
+          {
+            method: 'POST',
+            body: JSON.stringify(successResponse),
+          },
+          fetchModule,
+        );
 
         expect(response).toEqual(successResponse);
       });
@@ -44,22 +47,28 @@ describe('httpClientService', () => {
     describe('and it fails', () => {
       describe('for invalid URL', () => {
         test('throws an error', async () => {
-          await expect(HttpClientService(someUrl, {
-            method: 'POST',
-            body: JSON.stringify(successResponse),
-          },
-          fetchModuleError400))
+          await expect(HttpClientService(
+            someUrl,
+            {
+              method: 'POST',
+              body: JSON.stringify(successResponse),
+            },
+            fetchModuleError400,
+          ))
             .rejects
             .toThrow('Requisição inválida');
         });
       });
       describe('for bad request', () => {
         test('throws an error', async () => {
-          await expect(HttpClientService(someUrl, {
-            method: 'POST',
-            body: JSON.stringify(successResponse),
-          },
-          fetchModuleError404))
+          await expect(HttpClientService(
+            someUrl,
+            {
+              method: 'POST',
+              body: JSON.stringify(successResponse),
+            },
+            fetchModuleError404,
+          ))
             .rejects
             .toThrow('URL não encontrada');
         });

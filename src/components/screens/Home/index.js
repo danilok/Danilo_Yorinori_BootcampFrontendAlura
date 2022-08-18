@@ -6,7 +6,7 @@ export default function HomeScreen() {
   const websitePageContext = React.useContext(WebsitePageContext);
   const [cards, setCards] = React.useState([]);
 
-  React.useEffect(async () => {
+  const callApi = async () => {
     try {
       const projectsRes = await fetch('/api/projects');
       if (!projectsRes.ok) {
@@ -18,6 +18,10 @@ export default function HomeScreen() {
       // eslint-disable-next-line no-console
       console.log(error);
     }
+  };
+
+  React.useEffect(() => {
+    callApi();
   }, []);
 
   return (

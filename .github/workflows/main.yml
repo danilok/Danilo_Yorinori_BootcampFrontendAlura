@@ -85,4 +85,7 @@ jobs:
         env:
           DATO_CMS_TOKEN: ${{ secrets.DATO_CMS_TOKEN }}
           NEXT_PUBLIC_DATOCMS_URL: ${{ secrets.NEXT_PUBLIC_DATOCMS_URL }}
+          PREVIEW_KEY: ${{ secrets.PREVIEW_KEY }}
+          DATO_CMS_PREVIEW_MESSAGE_TOKEN: ${{ secrets.DATO_CMS_PREVIEW_MESSAGE_TOKEN }}
+          NEXT_PUBLIC_MESSAGE_MODEL_ID: ${{ secrets.NEXT_PUBLIC_MESSAGE_MODEL_ID }}
         run: yarn test:integration:build 

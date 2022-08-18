@@ -88,6 +88,23 @@ http://localhost:3000/
 
 <br>
 
+# ⚙️Configuration
+## Environment variables
+
+```
+DATO_CMS_TOKEN=<dato_cms_token>
+NEXT_PUBLIC_DATOCMS_URL=https://graphql.datocms.com/
+PREVIEW_KEY=<key>
+DATO_CMS_PREVIEW_MESSAGE_TOKEN=<token>
+NEXT_PUBLIC_MESSAGE_MODEL_ID=<model_id>
+```
+These variables must be configured on:
+- `.env.local` file for local deployment
+- Github Secrets for Github Actions CI
+- Vercel Environment Variables for build/deploy on Vercel.
+
+<br>
+
 # 📋 Run online
 
 This project can be tested online, click on badge below:

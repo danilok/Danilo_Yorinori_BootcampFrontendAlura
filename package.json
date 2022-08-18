@@ -21,7 +21,7 @@
     "chrome-aws-lambda": "^10.1.0",
     "datocms-client": "^3.5.21",
     "framer-motion": "^6.4.1",
-    "graphql": "^16.5.0",
+    "graphql": "^16.6.0",
     "graphql-request": "^4.3.0",
     "lodash": "^4.17.21",
     "next": "latest",

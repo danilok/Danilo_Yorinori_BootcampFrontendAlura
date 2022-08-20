@@ -67,6 +67,23 @@ const CMSGraphQLClientService = (preview) => ({
 
     return response.data.messages.about;
   },
+  async getRepos() {
+    const query = gql`
+        query {
+          allRepos {
+            id
+            name
+            url
+          }
+        }
+      `;
+
+    const client = CMSGraphQLClient({ preview });
+
+    const response = await client.query({ query });
+
+    return response.data.messages.allRepos;
+  },
 });
 
 export default CMSGraphQLClientService;

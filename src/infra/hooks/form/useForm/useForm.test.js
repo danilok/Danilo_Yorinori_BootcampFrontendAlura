@@ -92,7 +92,7 @@ describe('useForm()', () => {
         result.current.handleSubmit(event);
       });
 
-      expect(onSubmit).toBeCalledTimes(1);
+      expect(onSubmit).toHaveBeenCalledTimes(1);
     });
     test('form is set to submitted', () => {
       const result = initializedHook();

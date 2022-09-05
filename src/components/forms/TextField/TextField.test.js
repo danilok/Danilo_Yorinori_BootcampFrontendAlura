@@ -33,7 +33,7 @@ describe('<TextField />', () => {
         );
         const inputNome = screen.getByPlaceholderText(/nome/i);
         await user.type(inputNome, 'Danilo');
-        expect(onChangeMock).toBeCalledTimes(6);
+        expect(onChangeMock).toHaveBeenCalledTimes(6);
       });
     });
   });

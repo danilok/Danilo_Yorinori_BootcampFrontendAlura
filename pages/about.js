@@ -23,23 +23,32 @@ export default websitePageHOC(AboutPage, {
 });
 
 export async function getStaticProps() {
-  // const res = await fetch('https://api.github.com/users/danilok/repos?per_page=10&page=1');
-  // const jsonRes = await res.json();
-  // const repos = jsonRes.map((repo) => ({
-  //   id: repo.id,
-  //   name: repo.name,
-  //   url: repo.html_url,
-  // }));
-  // Changed to CMS due github api request limitations
-  const cmsGraphQLClient = CMSGraphQLClientService();
-  const repos = await cmsGraphQLClient.getRepos();
+  try {
+    // const res = await fetch('https://api.github.com/users/danilok/repos?per_page=10&page=1');
+    // const jsonRes = await res.json();
+    // const repos = jsonRes.map((repo) => ({
+    //   id: repo.id,
+    //   name: repo.name,
+    //   url: repo.html_url,
+    // }));
+    // Changed to CMS due github api request limitations
+    const cmsGraphQLClient = CMSGraphQLClientService();
+    const repos = await cmsGraphQLClient.getRepos();
 
-  const about = await getContent();
+    const about = await getContent();
 
-  return {
-    props: {
-      repos,
-      about,
-    },
-  };
+    return {
+      props: {
+        repos,
+        about,
+      },
+    };
+  } catch (error) {
+    return {
+      props: {
+        repos: [],
+        about: {},
+      },
+    };
+  }
 }

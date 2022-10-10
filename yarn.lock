@@ -3113,10 +3113,10 @@ detect-newline@^3.0.0:
   resolved "https://registry.yarnpkg.com/detect-newline/-/detect-newline-3.1.0.tgz#576f5dfc63ae1a192ff192d8ad3af6308991b651"
   integrity sha512-TLz+x/vEXm/Y7P7wn1EJFNLxYpUD4TgMosxY6fAVJUnJMbupHBOncxyWUG9OpTaH9EBD7uFI5LfEgmMOc54DsA==
 
-devtools-protocol@0.0.1036444:
-  version "0.0.1036444"
-  resolved "https://registry.yarnpkg.com/devtools-protocol/-/devtools-protocol-0.0.1036444.tgz#a570d3cdde61527c82f9b03919847b8ac7b1c2b9"
-  integrity sha512-0y4f/T8H9lsESV9kKP1HDUXgHxCdniFeJh6Erq+FbdOEvp/Ydp9t8kcAAM5gOd17pMrTDlFWntoHtzzeTUWKNw==
+devtools-protocol@0.0.1045489:
+  version "0.0.1045489"
+  resolved "https://registry.yarnpkg.com/devtools-protocol/-/devtools-protocol-0.0.1045489.tgz#f959ad560b05acd72d55644bc3fb8168a83abf28"
+  integrity sha512-D+PTmWulkuQW4D1NTiCRCFxF7pQPn0hgp4YyX4wAQ6xYXKOadSWPR3ENGDQ47MW/Ewc9v2rpC/UEEGahgBYpSQ==
 
 devtools-protocol@0.0.901419:
   version "0.0.901419"
@@ -4032,10 +4032,10 @@ formidable@^1.2.0:
   resolved "https://registry.yarnpkg.com/formidable/-/formidable-1.2.2.tgz#bf69aea2972982675f00865342b982986f6b8dd9"
   integrity sha512-V8gLm+41I/8kguQ4/o1D3RIHRmhYFG4pnNyonvua+40rqcEmT4+V71yaZ3B457xbbgCsCfjSPi65u/W6vK1U5Q==
 
-framer-motion@^7.2.1:
-  version "7.2.1"
-  resolved "https://registry.yarnpkg.com/framer-motion/-/framer-motion-7.2.1.tgz#0db5992ece791cb58357787ef9c29dd76281720d"
-  integrity sha512-bt2ZqqGpPsW6UojYUa5poWQJu3sDr4Dp3IZsdVBYdKUJ8p+9PxOk1fYRAT8lTGGmaC5HFoKrbDXQeKWGAKZz9g==
+framer-motion@^7.5.3:
+  version "7.5.3"
+  resolved "https://registry.yarnpkg.com/framer-motion/-/framer-motion-7.5.3.tgz#a1de7d6c4abbf7333619d4a6c8df74c12240be43"
+  integrity sha512-VvANga9Z7bYtKMAsM/je81FwJDHfThOYywN04xVQ4OGdMVY09Bowx/q7nZd6XtytLuv6byc6GT1mYwag+SQ/nw==
   dependencies:
     "@motionone/dom" "10.13.1"
     framesync "6.1.2"
@@ -6623,6 +6623,22 @@ punycode@^2.1.0, punycode@^2.1.1:
   resolved "https://registry.yarnpkg.com/punycode/-/punycode-2.1.1.tgz#b58b010ac40c22c5657616c8d2c2c02c7bf479ec"
   integrity sha512-XRsRjdf+j5ml+y/6GKHPZbrF/8p2Yga0JPtdqTIY2Xe5ohJPD9saDJJLPvp9+NSBprVvevdXZybnj2cv8OEd0A==
 
+puppeteer-core@18.2.1:
+  version "18.2.1"
+  resolved "https://registry.yarnpkg.com/puppeteer-core/-/puppeteer-core-18.2.1.tgz#9b7827bb2bf478bb615e2c21425e4659555dc1fe"
+  integrity sha512-MRtTAZfQTluz3U2oU/X2VqVWPcR1+94nbA2V6ZrSZRVEwLqZ8eclZ551qGFQD/vD2PYqHJwWOW/fpC721uznVw==
+  dependencies:
+    cross-fetch "3.1.5"
+    debug "4.3.4"
+    devtools-protocol "0.0.1045489"
+    extract-zip "2.0.1"
+    https-proxy-agent "5.0.1"
+    proxy-from-env "1.1.0"
+    rimraf "3.0.2"
+    tar-fs "2.1.1"
+    unbzip2-stream "1.4.3"
+    ws "8.9.0"
+
 puppeteer-core@^10.4.0:
   version "10.4.0"
   resolved "https://registry.yarnpkg.com/puppeteer-core/-/puppeteer-core-10.4.0.tgz#4e2da57c52339b8c07cd9362922020eb3c3c95bf"
@@ -6641,22 +6657,15 @@ puppeteer-core@^10.4.0:
     unbzip2-stream "1.3.3"
     ws "7.4.6"
 
-puppeteer@^18.0.5:
-  version "18.0.5"
-  resolved "https://registry.yarnpkg.com/puppeteer/-/puppeteer-18.0.5.tgz#873223b17b92345182c5b5e8cfbd6f3117f1547d"
-  integrity sha512-s4erjxU0VtKojPvF+KvLKG6OHUPw7gO2YV1dtOsoryyCbhrs444fXb4QZqGWuTv3V/rgSCUzeixxu34g0ZkSMA==
+puppeteer@^18.2.1:
+  version "18.2.1"
+  resolved "https://registry.yarnpkg.com/puppeteer/-/puppeteer-18.2.1.tgz#08967cd423efe511ee4c6e3a5c882ffaf2e6bbf3"
+  integrity sha512-7+UhmYa7wxPh2oMRwA++k8UGVDxh3YdWFB52r9C3tM81T6BU7cuusUSxImz0GEYSOYUKk/YzIhkQ6+vc0gHbxQ==
   dependencies:
-    cross-fetch "3.1.5"
-    debug "4.3.4"
-    devtools-protocol "0.0.1036444"
-    extract-zip "2.0.1"
     https-proxy-agent "5.0.1"
     progress "2.0.3"
     proxy-from-env "1.1.0"
-    rimraf "3.0.2"
-    tar-fs "2.1.1"
-    unbzip2-stream "1.4.3"
-    ws "8.8.1"
+    puppeteer-core "18.2.1"
 
 pusher-js@^5.0.3:
   version "5.1.1"
@@ -8045,7 +8054,12 @@ ws@7.4.6:
   resolved "https://registry.yarnpkg.com/ws/-/ws-7.4.6.tgz#5654ca8ecdeee47c33a9a4bf6d28e2be2980377c"
   integrity sha512-YmhHDO4MzaDLB+M9ym/mDA5z0naX8j7SIlT8f8z+I0VtzsRbekxEutHSme7NPS2qE8StCYQNUnfWdXta/Yu85A==
 
-ws@8.8.1, ws@^8.8.0:
+ws@8.9.0:
+  version "8.9.0"
+  resolved "https://registry.yarnpkg.com/ws/-/ws-8.9.0.tgz#2a994bb67144be1b53fe2d23c53c028adeb7f45e"
+  integrity sha512-Ja7nszREasGaYUYCI2k4lCKIRTt+y7XuqVoHR44YpI49TtryyqbqvDMn5eqfW7e6HzTukDRIsXqzVHScqRcafg==
+
+ws@^8.8.0:
   version "8.8.1"
   resolved "https://registry.yarnpkg.com/ws/-/ws-8.8.1.tgz#5dbad0feb7ade8ecc99b830c1d77c913d4955ff0"
   integrity sha512-bGy2JzvzkPowEJV++hF07hAD6niYSr0JzBNo/J29WsB57A2r7Wlc1UFcTR9IzrPvuNVO4B8LGqF8qcpsVOhJCA==

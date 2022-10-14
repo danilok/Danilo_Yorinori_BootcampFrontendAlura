@@ -1,36 +1,36 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`breakpointsMedia() when receives an argument with all breakpoints returns an array with length equals to configured breakpoints 1`] = `
-Array [
-  Array [
+[
+  [
     "@media screen and (min-width:",
     "0",
     "px){",
     "width:290px;",
     "}",
   ],
-  Array [
+  [
     "@media screen and (min-width:",
     "768",
     "px){",
     "width:488px;",
     "}",
   ],
-  Array [
+  [
     "@media screen and (min-width:",
     "480",
     "px){",
     "width:288px;",
     "}",
   ],
-  Array [
+  [
     "@media screen and (min-width:",
     "992",
     "px){",
     "width:588px;",
     "}",
   ],
-  Array [
+  [
     "@media screen and (min-width:",
     "1200",
     "px){",
@@ -41,8 +41,8 @@ Array [
 `;
 
 exports[`breakpointsMedia() when receives an argument with invalid breakpoint value returns an array with only valid ones 1`] = `
-Array [
-  Array [
+[
+  [
     "@media screen and (min-width:",
     "0",
     "px){",
@@ -53,8 +53,8 @@ Array [
 `;
 
 exports[`breakpointsMedia() when receives an argument with only one breakpoint returns an array with single element 1`] = `
-Array [
-  Array [
+[
+  [
     "@media screen and (min-width:",
     "0",
     "px){",
@@ -65,15 +65,15 @@ Array [
 `;
 
 exports[`breakpointsMedia() when receives an argument with two or more breakpoints returns an array with more than one elements 1`] = `
-Array [
-  Array [
+[
+  [
     "@media screen and (min-width:",
     "0",
     "px){",
     "width:290px;",
     "}",
   ],
-  Array [
+  [
     "@media screen and (min-width:",
     "768",
     "px){",

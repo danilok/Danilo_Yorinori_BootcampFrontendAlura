@@ -4,7 +4,7 @@ import HomeScreenPageObject from '../../../src/components/screens/Home/HomeScree
 describe('/pages/index', () => {
   describe('when click contact button and modal is open', () => {
     describe('fill form fields correctly', () => {
-      it('and submit the message', () => {
+      it.skip('and submit the message', () => {
         // Pré-teste
         cy.intercept('https://contact-form-api-jamstack.herokuapp.com/message')
           .as('sendMessage');

@@ -182,7 +182,7 @@ export default function AboutScreen({ repos, about }) {
 
 AboutScreen.propTypes = {
   repos: PropTypes.arrayOf(PropTypes.shape({
-    id: PropTypes.number,
+    id: PropTypes.string,
     name: PropTypes.string,
     url: PropTypes.string,
   })).isRequired,

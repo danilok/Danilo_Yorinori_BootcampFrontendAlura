@@ -1,4 +1,4 @@
-import DatoCMSClientService from '../../src/services/cms/DatoCMSClientService';
+import DatoCMSClientService from '../src/services/cms/DatoCMSClientService';
 
 const datoCMSClientService = DatoCMSClientService();
 

@@ -1,4 +1,4 @@
-import CMSGraphQLClientService from '../../src/services/cms/CMSGraphQLClientService';
+import CMSGraphQLClientService from '../src/services/cms/CMSGraphQLClientService';
 
 const methods = {
   POST: async (request, response) => response.status(403).send(),

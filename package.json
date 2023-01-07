@@ -21,7 +21,7 @@
     "@next/env": "^13.0.5",
     "chrome-aws-lambda": "^10.1.0",
     "datocms-client": "^3.5.21",
-    "framer-motion": "^7.6.18",
+    "framer-motion": "^8.0.2",
     "graphql": "^16.6.0",
     "graphql-request": "^5.1.0",
     "lodash": "^4.17.21",

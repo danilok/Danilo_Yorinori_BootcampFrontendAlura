@@ -35,7 +35,7 @@
     "react-is": "^18.2.0",
     "styled-components": "^5.3.11",
     "styled-normalize": "^8.0.7",
-    "yup": "^1.1.1"
+    "yup": "^1.2.0"
   },
   "devDependencies": {
     "@commitlint/cli": "^17.6.1",

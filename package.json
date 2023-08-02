@@ -45,7 +45,7 @@
     "@testing-library/react-hooks": "^8.0.1",
     "@testing-library/user-event": "^14.4.3",
     "@types/jest": "^29.5.2",
-    "@types/node": "^18.15.0",
+    "@types/node": "^20.4.5",
     "@types/prop-types": "^15.7.5",
     "@types/styled-components": "^5.1.26",
     "babel-plugin-styled-components": "^2.1.4",

@@ -53,7 +53,7 @@
     "cz-conventional-changelog": "3.3.0",
     "eslint": "^8.48.0",
     "eslint-config-airbnb": "^19.0.4",
-    "eslint-config-next": "13.0.6",
+    "eslint-config-next": "13.4.19",
     "eslint-plugin-cypress": "^2.14.0",
     "eslint-plugin-import": "^2.28.0",
     "eslint-plugin-jest": "^27.2.3",

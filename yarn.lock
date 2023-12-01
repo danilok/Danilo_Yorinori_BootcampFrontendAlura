@@ -4359,10 +4359,10 @@ formidable@^1.2.0:
   resolved "https://registry.yarnpkg.com/formidable/-/formidable-1.2.2.tgz#bf69aea2972982675f00865342b982986f6b8dd9"
   integrity sha512-V8gLm+41I/8kguQ4/o1D3RIHRmhYFG4pnNyonvua+40rqcEmT4+V71yaZ3B457xbbgCsCfjSPi65u/W6vK1U5Q==
 
-framer-motion@^10.12.18:
-  version "10.12.18"
-  resolved "https://registry.yarnpkg.com/framer-motion/-/framer-motion-10.12.18.tgz#92015860b6468a82e76c4739fcae81e1f6723b3f"
-  integrity sha512-cfhiUpPbj+0eEWKjuD+5cz5cMqH71xOtMxGiS/cSGfHn2OlHIEAqFnFyzEMENw5PxWR9bMVhatzzpD6lexmHZQ==
+framer-motion@^10.16.9:
+  version "10.16.9"
+  resolved "https://registry.yarnpkg.com/framer-motion/-/framer-motion-10.16.9.tgz#350ab8e81bc8e6ddd0cb9f998057965431fd9494"
+  integrity sha512-tcLz4X7PplYu6f4KHmclZFhHe8bFhCqfIG0z0Ssb+xi6OTfYeAb8BuVD235PMvypwi232VQ68KYlu3pfMKwPzA==
   dependencies:
     tslib "^2.4.0"
   optionalDependencies:

@@ -3005,10 +3005,10 @@ data-urls@^3.0.2:
     whatwg-mimetype "^3.0.0"
     whatwg-url "^11.0.0"
 
-datocms-client@^3.5.21:
-  version "3.5.21"
-  resolved "https://registry.yarnpkg.com/datocms-client/-/datocms-client-3.5.21.tgz#ec3e41ce0143cd7ac3a400c89a53cda47cab3428"
-  integrity sha512-CnJn5xQKExSozf8lCZEWkebJ7bdNpjlGXBqYr9sLYtyjDEW6GBRQeqJq5XpwCOd84Q8146nbT8iVKqi2u8NtNQ==
+datocms-client@^3.5.24:
+  version "3.5.24"
+  resolved "https://registry.yarnpkg.com/datocms-client/-/datocms-client-3.5.24.tgz#8aaa12ec52968763068d5656ba20ae87b2f7cd9f"
+  integrity sha512-18DKOwzIGTEcxdhxt1R0IqsphnTlwo3Ob6IRqH43LeWQVvQ9yApJtgNdgVsL4N2BLfPziFPuruWJzzhiVEukcg==
   dependencies:
     "@iarna/toml" "^2.2.3"
     arr-diff "^4.0.0"

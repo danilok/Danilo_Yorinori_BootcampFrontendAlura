@@ -7329,10 +7329,10 @@ react-error-boundary@^3.1.0:
   dependencies:
     "@babel/runtime" "^7.12.5"
 
-react-intersection-observer@^9.5.2:
-  version "9.5.2"
-  resolved "https://registry.yarnpkg.com/react-intersection-observer/-/react-intersection-observer-9.5.2.tgz#f68363a1ff292323c0808201b58134307a1626d0"
-  integrity sha512-EmoV66/yvksJcGa1rdW0nDNc4I1RifDWkT50gXSFnPLYQ4xUptuDD4V7k+Rj1OgVAlww628KLGcxPXFlOkkU/Q==
+react-intersection-observer@^9.5.4:
+  version "9.5.4"
+  resolved "https://registry.yarnpkg.com/react-intersection-observer/-/react-intersection-observer-9.5.4.tgz#b2f099e5088662b12cc8d54c05f49c0e65908e3c"
+  integrity sha512-UhZgFMPFf36vFGi6HhM5Q+lm+JxeYbbt+G1iuXGmlbUehxPtL7s29SeGabaTBR8ucG6UizfT3cyYUhveJeM9rQ==
 
 react-is@^16.13.1, react-is@^16.7.0:
   version "16.13.1"
